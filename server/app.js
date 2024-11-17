@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const PORT = 5000;
 const morgan = require('morgan');
+const cors = require('cors')
 
 // Adding Routes here
 const authRoutes = require('./routes/authRoutes');
@@ -24,7 +25,12 @@ sequelize.sync({ force: true }) // Use { alter: true } to automatically adjust t
     console.error('Error syncing database:', err);
   });
 
-// Middlewares
+  // Middlewares
+app.use(cors({
+  origin: 'http://localhost:3000', // Allow only your client
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
+  credentials: true, // Enable cookies and other credentials
+}));
 app.use(morgan('combined')); // Request logger
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded data
 app.use(express.json()); // Parse JSON bodies
