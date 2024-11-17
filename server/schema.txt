@@ -1,0 +1,12 @@
+==============MODELS=============
+
+USER: columns are username, email and password
+PRODUCT: columns are id, name, description, price and stackQuantity
+ORDER: columns are id, orderStatus and totalPrice
+ORDERITEM: columns are id, orderId, productId and quantity
+CART: columns are id, usernam and status
+CARTITEM: columns are id, productId, quantity, price and cartId
+
+
+
+=======================================

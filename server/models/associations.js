@@ -32,6 +32,9 @@ User.hasMany(Order);       // A user can have many orders
 Order.belongsToMany(Product, { through: 'OrderProduct' }); // An order can contain multiple products
 Product.belongsToMany(Order, { through: 'OrderProduct' }); // A product can belong to many orders
 
+
+
+
 module.exports = () => {
     // Sync models (optional to run here if centralizing sync in config)
     User.sync();

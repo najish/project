@@ -2,10 +2,15 @@ const express = require('express');
 const app = express();
 const PORT = 5000;
 const morgan = require('morgan');
+
+// Adding Routes here
 const authRoutes = require('./routes/authRoutes');
 const productRoutes = require('./routes/productRoutes');
 const orderRoutes = require('./routes/orderRoutes');
+const cartRoutes = require('./routes/cartRoutes');
+
 const sequelize = require('./config/database');
+
 require('./models/associations');
 const seedsData = require('./seeders/seed')
 
@@ -33,6 +38,7 @@ app.get('/', (req, res) => {
 app.use('/auth', authRoutes);
 app.use('/products', productRoutes);
 app.use('/orders', orderRoutes);
+app.use('/carts', cartRoutes);
 
 // Global error handler
 app.use((err, req, res, next) => {

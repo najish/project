@@ -5,9 +5,8 @@ const {addOrder, editOrder, getOrder, getOrders, deleteOrder} = require('../cont
 
 router.get('/', getOrders)
 router.get('/:id', getOrder)
-
 router.post('/add', addOrder)
-router.put('/edit', editOrder)
-router.delete('/', deleteOrder)
+router.put('/edit/:id', editOrder)
+router.delete('/delete/:id', deleteOrder)
 
 module.exports = router

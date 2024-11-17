@@ -1,0 +1,13 @@
+Day1 (16/Nov/2024)
+===========================
+1. Did some project creation, frontend and backend stepup
+
+
+Day2 (17/nov/2024)
+===========================
+1. Complete the Products route, and controller logic
+2. complete the orders route and controller logic
+3. Complete the cart and cartitem route and controller logic
+4. Add Validation for the backend data 
+5. Session : cart for every session or every device user logged in will have different cart
+6.
