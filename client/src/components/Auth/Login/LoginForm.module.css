@@ -1,0 +1,58 @@
+.LoginFormContainer {
+    width: 550px;
+    heigth: 500px;
+    border: 2px solid red;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+}
+
+.FormTitle {
+    text-align: center;
+}
+
+.LoginForm {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.FormGroup {
+    margin-bottom: 15px;
+    padding: 10px;
+    display:flex;
+    flex-direction: column;
+}
+
+.Btn {
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+}
+
+.LoginFormInput {
+    width: 100%;
+    padding:10px;
+    border-radius:5px;
+}
+
+
+.SubmitBtn {
+    padding: 10px;
+    background-color:#127828; 
+    color: white;
+}
+
+.SubmitBtn:hover {
+    background-color: #218838;
+}
+
+
+.CancelBtn {
+    background-color: #F0F0F0;
+}
+
+.CancelBtn:hover {
+    background-color: red;
+    color: white;
+}
