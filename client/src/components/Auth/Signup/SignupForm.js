@@ -54,12 +54,11 @@ const SignupForm = () => {
             }
             console.log(formData)
             console.log(data)   
-            const response = await axios.post('http://localhost:5000/auth/signup', data)
+            const signupUrl = process.env.REACT_APP_SERVER_API_URL
+            const response = await axios.post(`${signupUrl}/auth/signup`, data)
             setMessage(response.data.message)
             console.log(response)
-            if (response.status === 201) { 
-                window.location.href = '/?success=true'
-            }
+            
 
         } catch(err) {
             if(err.message) {

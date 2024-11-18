@@ -1,0 +1,42 @@
+/* General Reset */
+body, html, #root {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    height: 100%;
+  }
+  
+  /* Main Section Styling */
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    min-height: 80vh;
+    width: 100%;
+    background-color: #f9f9f9;
+  }
+  
+  /* Content Wrapper */
+  .content {
+    max-width: 1200px;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  /* Example Typography */
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  

@@ -1,9 +1,10 @@
 .LoginFormContainer {
     width: 550px;
     heigth: 500px;
-    border: 2px solid red;
-    background-color: #FFFFFF;
     box-sizing: border-box;
+    box-shadow: inset;
+    border-radius:5px;
+    background-color: aliceblue;
 }
 
 .FormTitle {
@@ -13,7 +14,8 @@
 .LoginForm {
     display: flex;
     flex-direction: column;
-
+    justify-content: center;
+    width: inherit;
 }
 
 .FormGroup {
@@ -31,7 +33,7 @@
 }
 
 .LoginFormInput {
-    width: 100%;
+    width: inherit;
     padding:10px;
     border-radius:5px;
 }
@@ -56,3 +58,5 @@
     background-color: red;
     color: white;
 }
+
+

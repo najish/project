@@ -82,6 +82,11 @@ const seedData = async () => {
           email: 'susan.brown@example.com',
           password: 'hashedpassword5',
         },
+        {
+          username:'najish.eqbal',
+          email:'najish.eqbal@gmail.com',
+          password:'$2b$10$5yJSF4tESdLrgjX9tejEL.PNtlQIrUOf/aDK8is.Um8BozFm8uiCi'
+        }
       ]);
 
 

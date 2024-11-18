@@ -1,18 +1,22 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
-import SignupForm from './components/Auth/Signup/SignupForm';
-import LoginForm from './components/Auth/Login/LoginForm';
+import Main from './components/Main/Main'
+import Cart from './components/Cart/Cart';
 import Product from './components/Product/Product';
+import Footer from './components/Footer/Footer';
+
+
 const App = () => {
+  const [cart, setCart] = useState([])
+  
   return (
     <Router>
+
       <Header />
-      <Routes>
-        <Route path="/signup" element={<SignupForm />} />
-        <Route path="/login" element={<LoginForm />} />
-        <Route path="/products" element={<Product />} />
-      </Routes>
+      <Main cart={cart} setCart={setCart}/>
+      <Footer />
+
     </Router>
   );
 };
