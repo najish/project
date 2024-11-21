@@ -22,3 +22,14 @@
     margin:10px;
     padding:10px;
 }
+
+
+.oauth-container {
+    display:flex;
+    justify-content: space-evenly;
+}
+
+.oauth-container > div {
+    padding:10px;
+    
+}

@@ -1,0 +1,40 @@
+.productdetails-container {
+  max-width: 1200px;
+  /* Limit the width of the container */
+  margin: 0 auto;
+  /* Center the container horizontally */
+  padding: 20px;
+  /* Add some padding inside the container */
+  background-color: #f9f9f9;
+  /* Light background color for contrast */
+  border-radius: 8px;
+  /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow for depth */
+  font-family: 'Arial', sans-serif;
+  /* Set font style */
+
+  display: flex;
+  gap: 16px;
+}
+
+
+.productdetails-container img {
+  max-width: 100%;
+  /* Scale image width to fit container */
+  max-height: 100%;
+  /* Scale image height to fit container */
+  object-fit: contain;
+  /* Maintain aspect ratio */
+
+
+}
+
+
+
+
+.productdetails-container>div {
+  height: 200px;
+  width: 200px;
+  background-color: green;
+}

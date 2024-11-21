@@ -57,11 +57,17 @@ const Cart = ({ cart, setCart }) => {
                                 <p>Price: ${product.price}</p>
                                 <div>
                                     <p>
-                                        <p>-</p> 
-                                        <input value={product.quantity} />
-                                        <p>+</p>
+                                        <p>
+                                            <p><button>-</button></p>
+                                        </p>
+                                        <div>
+                                            {product.quantity}
+                                        </div>
+                                        <p>
+                                            <p>+</p>
+                                        </p>
                                     </p>
-                                 </div>   
+                                </div>
                                 <p>Total Price : ${product.price * product.quantity}</p>
                             </div>
                         ))}
@@ -69,7 +75,7 @@ const Cart = ({ cart, setCart }) => {
                 )}
                 <div><button>Place Order</button></div>
             </div>
-            
+
         </div>
     );
 };

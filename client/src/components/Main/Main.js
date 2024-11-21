@@ -4,6 +4,7 @@ import LoginForm from '../Auth/Login/LoginForm';
 import SignupForm from '../Auth/Signup/SignupForm';
 import Product from '../Product/Product';
 import Cart from '../Cart/Cart'
+import ProductDetails from '../Product/ProductDetails';
 const Main = ({cart, setCart}) => {
   return (
     <main className="main-container">
@@ -12,6 +13,7 @@ const Main = ({cart, setCart}) => {
         <Route path="/signup" element={<SignupForm />} />
         <Route path="/products" element={<Product cart={cart} setCart={setCart}/>} />
         <Route path="/carts" element={<Cart cart={cart} setCart={setCart}/>} />
+        <Route path={`/products/:id`} element={<ProductDetails />} />
         <Route path="/" element={<p>Welcome! Please log in or sign up.</p>} />
       </Routes>
     </main>

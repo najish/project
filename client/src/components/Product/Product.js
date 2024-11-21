@@ -1,13 +1,12 @@
-import React, { useState, useEffect, useReducer } from "react";
-import styles from './Product.module.css'
+import React, { useState, useEffect } from "react";
 import './Product.css'
-import { Router, Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import Another from "./Another/Another";
 import axios from "axios";
+import ProductDetails from "./ProductDetails";
 
 
-
-const Product = ({cart, setCart}) => {
+const Product = ({ cart, setCart }) => {
     const [products, setProducts] = useState([])
 
 
@@ -29,7 +28,7 @@ const Product = ({cart, setCart}) => {
     useEffect(() => {
         console.log("Hello from use effects in product")
         console.log(cart)
-    },[cart])
+    }, [cart])
 
     const handleAddToCart = (product) => {
 
@@ -41,8 +40,8 @@ const Product = ({cart, setCart}) => {
             quantity: 1
         }
 
-        if(productIndex === -1) {
-            setCart([...cart,prod])
+        if (productIndex === -1) {
+            setCart([...cart, prod])
         }
         else {
             const updateProduct = [...cart]
@@ -52,13 +51,16 @@ const Product = ({cart, setCart}) => {
             }
             setCart(updateProduct)
         }
-        
+
     }
+
+
     return (
         <>
             <div className="product-container">
                 <Routes>
                     <Route path='/another' element={<Another />} />
+                    <Route path='/products/:id' element={<ProductDetails />} />
                 </Routes>
 
                 <h1>Product List</h1>
@@ -66,17 +68,19 @@ const Product = ({cart, setCart}) => {
 
                     <ul className="product-list-container">
                         {products.map((product) => (
-                            <li key={product.id} className="product">
-                                <h3>{product.name}</h3>
-                                <p>{product.description}</p>
-                                <div>
-                                    <p>Price: ${product.price}</p>
-                                    <p>Stock: {product.stockQuantity}</p>
-                                </div>
-                                <div>
-                                    <button className="product-add-cart-btn" onClick={() => handleAddToCart(product)}>Add To Cart</button>
-                                    <button className="product-buy-now-btn">Buy now</button>
-                                </div>
+                            <li key={product.id} className="product" >
+                                <Link to={`/products/${product.id}`}>
+                                    <h3>{product.name}</h3>
+                                    <p>{product.description}</p>
+                                    <div>
+                                        <p>Price: ${product.price}</p>
+                                        <p>Stock: {product.stockQuantity}</p>
+                                    </div>
+                                    <div>
+                                        <button className="product-add-cart-btn" onClick={() => handleAddToCart(product)}>Add To Cart</button>
+                                        <button className="product-buy-now-btn">Buy now</button>
+                                    </div>
+                                </Link>
                             </li>
                         ))}
                     </ul>

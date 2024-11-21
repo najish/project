@@ -11,3 +11,21 @@ Day2 (17/nov/2024)
 4. Add Validation for the backend data 
 5. Session : cart for every session or every device user logged in will have different cart
 6.
+
+
+
+
+
+Day3 
+==================
+
+
+
+
+
+
+
+
+Day4 (19/11/2024)
+=========================
+1. Update the 

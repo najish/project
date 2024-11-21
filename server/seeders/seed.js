@@ -85,7 +85,8 @@ const seedData = async () => {
         {
           username:'najish.eqbal',
           email:'najish.eqbal@gmail.com',
-          password:'$2b$10$5yJSF4tESdLrgjX9tejEL.PNtlQIrUOf/aDK8is.Um8BozFm8uiCi'
+          password:'$2b$10$5yJSF4tESdLrgjX9tejEL.PNtlQIrUOf/aDK8is.Um8BozFm8uiCi',
+          role:'admin'
         }
       ]);
 

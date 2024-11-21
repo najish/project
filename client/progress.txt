@@ -1,0 +1,21 @@
+IMPROVEMENTS
+=======================
+1. login and signup button conditional rendering
+2. admin route and admin product adding
+3. add footer design
+4. adding font
+5. cart page with order place button and some customization
+
+
+
+
+FREATURES
+======================
+
+
+
+
+
+
+BUGS 
+=======================

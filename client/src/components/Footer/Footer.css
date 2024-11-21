@@ -1,0 +1,96 @@
+/* Basic Footer Styling */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+  }
+  
+  /* Container for footer content */
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
+    gap: 30px; /* Adds space between the columns */
+    max-width: 1200px;
+    margin: 0 auto; /* Centers the footer */
+    padding: 0 20px;
+  }
+  
+  /* Footer Logo Section */
+  .footer-logo h2 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+  
+  /* Links Section */
+  .footer-links ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-links li {
+    margin: 8px 0;
+  }
+  
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+  }
+  
+  .footer-links a:hover {
+    color: #ff6347;  /* Change to your hover color */
+  }
+  
+  /* Social Media Section */
+  .footer-socials ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-socials li {
+    margin: 8px 0;
+  }
+  
+  .footer-socials a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+  }
+  
+  .footer-socials a:hover {
+    color: #ff6347;  /* Change to your hover color */
+  }
+  
+  /* Footer Bottom Section */
+  .footer-bottom {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #444; /* A border to separate the bottom section */
+  }
+  
+  .footer-bottom p {
+    font-size: 14px;
+    color: #bbb;
+  }
+  
+  /* Responsive Design for smaller screens */
+  @media (max-width: 768px) {
+    .footer-content {
+      grid-template-columns: 1fr; /* Stack the content in one column on small screens */
+      text-align: center;
+    }
+  
+    .footer-logo {
+      margin-bottom: 20px;
+    }
+  
+    .footer-links ul, .footer-socials ul {
+      margin-bottom: 20px;
+    }
+  }
+  
