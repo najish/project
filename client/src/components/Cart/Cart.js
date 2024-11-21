@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import './Cart.css';
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Cart = ({ cart, setCart }) => {
     const [products, setProducts] = useState([]);
 
+    const navigate = useNavigate()
+
     useEffect(() => {
         const fetchData = async (id) => {
             try {
-                const serverUrl = process.env.REACT_APP_SERVER_API_URL
+                const serverUrl = process.env.REACT_APP_SERVER_API_URL;
                 const response = await axios.get(`${serverUrl}/products/${id}?timestamp=${Date.now()}`, {
                     headers: {
                         'Cache-Control': 'no-cache',
@@ -27,7 +30,7 @@ const Cart = ({ cart, setCart }) => {
             const productDetails = await Promise.all(
                 cart.map(async (c) => {
                     const response = await fetchData(c.id);
-                    const product = response.product
+                    const product = response.product;
                     // Only add product if fetch was successful
                     return product ? { ...product, quantity: c.quantity } : null;
                 })
@@ -42,6 +45,22 @@ const Cart = ({ cart, setCart }) => {
         }
     }, [cart]); // Trigger when cart changes
 
+    // Handle quantity increase and decrease
+    const handleQuantityChange = (productId, change) => {
+        setCart(prevCart =>
+            prevCart.map(item =>
+                item.id === productId
+                    ? { ...item, quantity: Math.max(1, item.quantity + change) }
+                    : item
+            )
+        );
+    };
+
+
+    const handlePlaceOrder = () => {
+        navigate('/checkout')
+    }
+
     return (
         <div className="cart-details">
             <div className="cart-products">
@@ -55,27 +74,30 @@ const Cart = ({ cart, setCart }) => {
                                 <h3>{product.name}</h3>
                                 <p>{product.description}</p>
                                 <p>Price: ${product.price}</p>
-                                <div>
-                                    <p>
-                                        <p>
-                                            <p><button>-</button></p>
-                                        </p>
-                                        <div>
-                                            {product.quantity}
-                                        </div>
-                                        <p>
-                                            <p>+</p>
-                                        </p>
-                                    </p>
+                                <div className="quantity-controls">
+                                    <button
+                                        className="quantity-btn"
+                                        onClick={() => handleQuantityChange(product.id, -1)}
+                                    >
+                                        -
+                                    </button>
+                                    <div className="quantity">{product.quantity}</div>
+                                    <button
+                                        className="quantity-btn"
+                                        onClick={() => handleQuantityChange(product.id, 1)}
+                                    >
+                                        +
+                                    </button>
                                 </div>
-                                <p>Total Price : ${product.price * product.quantity}</p>
+                                <p>Total Price: ${product.price * product.quantity}</p>
                             </div>
                         ))}
                     </div>
                 )}
-                <div><button>Place Order</button></div>
+                <div>
+                    <button className="place-order-btn" onClick={handlePlaceOrder}>Place Order</button>
+                </div>
             </div>
-
         </div>
     );
 };

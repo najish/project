@@ -5,10 +5,8 @@ import Another from "./Another/Another";
 import axios from "axios";
 import ProductDetails from "./ProductDetails";
 
-
 const Product = ({ cart, setCart }) => {
     const [products, setProducts] = useState([])
-
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -17,22 +15,15 @@ const Product = ({ cart, setCart }) => {
                 const response = await axios.get(`${serverUrl}/products`)
                 setProducts(response.data.products)
             } catch (err) {
-                console.log('failed to fetch products')
+                console.log('Failed to fetch products')
             }
         }
 
         fetchProducts()
     }, [])
 
-
-    useEffect(() => {
-        console.log("Hello from use effects in product")
-        console.log(cart)
-    }, [cart])
-
     const handleAddToCart = (product) => {
-
-        console.log('add to cart button is clicked', product)
+        console.log('Add to cart button is clicked', product)
         const productIndex = cart.findIndex((item) => item.id === product.id)
         const prod = {
             id: product.id,
@@ -42,8 +33,7 @@ const Product = ({ cart, setCart }) => {
 
         if (productIndex === -1) {
             setCart([...cart, prod])
-        }
-        else {
+        } else {
             const updateProduct = [...cart]
             updateProduct[productIndex] = {
                 ...updateProduct[productIndex],
@@ -51,9 +41,7 @@ const Product = ({ cart, setCart }) => {
             }
             setCart(updateProduct)
         }
-
     }
-
 
     return (
         <>
@@ -65,22 +53,23 @@ const Product = ({ cart, setCart }) => {
 
                 <h1>Product List</h1>
                 <div className="product-container-center">
-
                     <ul className="product-list-container">
                         {products.map((product) => (
-                            <li key={product.id} className="product" >
-                                <Link to={`/products/${product.id}`}>
+                            <li key={product.id} className="product">
+                                <Link to={`/products/${product.id}`} className="product-link">
                                     <h3>{product.name}</h3>
-                                    <p>{product.description}</p>
-                                    <div>
-                                        <p>Price: ${product.price}</p>
-                                        <p>Stock: {product.stockQuantity}</p>
-                                    </div>
-                                    <div>
-                                        <button className="product-add-cart-btn" onClick={() => handleAddToCart(product)}>Add To Cart</button>
-                                        <button className="product-buy-now-btn">Buy now</button>
+                                    <p className="product-description">{product.description}</p>
+                                    <div className="product-info">
+                                        <p className="product-price">Price: ${product.price}</p>
+                                        <p className="product-stock">Stock: {product.stockQuantity}</p>
                                     </div>
                                 </Link>
+                                <div className="product-actions">
+                                    <button className="product-add-cart-btn" onClick={() => handleAddToCart(product)}>
+                                        Add To Cart
+                                    </button>
+                                    <button className="product-buy-now-btn">Buy Now</button>
+                                </div>
                             </li>
                         ))}
                     </ul>

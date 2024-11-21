@@ -1,22 +1,47 @@
-header.header {
-    color:white;
-    border:2px solid purple;
-    display:flex;
+/* Header container styling */
+.header {
+    color: white;
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 15px 25px;
     background-color: #333;
-
-    min-height: 60px;
-    max-height:120px;
+    min-height: 70px;
+    position: relative;
 }
 
+/* Logo Styling */
+.logo-img {
+    width: 60px; /* Increased size of the logo */
+    height: 60px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.1);
+}
+
+.logo a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Navigation container */
+nav {
+    display: flex;
+    align-items: center;
+    width: 100%; /* To allow flex container to stretch */
+    justify-content: space-between;
+}
+
+/* Navigation Links */
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 30px;
+    margin: 0;
 }
-
 
 .nav-links li {
     margin: 0;
@@ -25,5 +50,103 @@ header.header {
 .nav-links a {
     text-decoration: none;
     color: white;
+    font-size: 1.2em; /* Increased font size for better readability */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #55c2da;
+}
+
+/* Buttons container */
+.auth-links {
+    display: flex;
+    gap: 15px;
+    margin-left: auto; /* Aligns the auth buttons to the right */
+}
+
+.auth-link {
+    text-decoration: none;
+    color: white;
     font-size: 1.1em;
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 5px;
+    background-color: #ff7f50;
+    transition: background-color 0.3s ease;
+}
+
+.auth-link:hover {
+    background-color: #e66c3c;
+}
+
+/* Logout button styling */
+.btn {
+    padding: 8px 16px;
+    border: none;
+    background-color: #ff7f50;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #e66c3c;
+}
+
+/* Mobile Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger .bar {
+    width: 30px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+/* Show Mobile Navigation */
+.nav-links.active {
+    display: block;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: #333;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+/* For larger screens, navigation is horizontal */
+@media (min-width: 768px) {
+    .hamburger {
+        display: none;
+    }
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+/* For small screens, the hamburger menu appears */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .hamburger {
+        display: flex;
+    }
+    .nav-links.active {
+        display: flex;
+    }
 }

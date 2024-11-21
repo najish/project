@@ -6,7 +6,9 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-logo">
-          <h2>MyWebsite</h2>
+          <h2>
+            <img src='/favicon_io/favicon.ico' alt='Logo' />
+          </h2>
         </div>
         <div className="footer-links">
           <ul>

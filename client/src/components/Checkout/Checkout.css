@@ -1,0 +1,43 @@
+/* General Container */
+.checkout-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Styling for each row */
+  .checkout-row {
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .checkout-row h2 {
+    margin: 0;
+    font-size: 1.6em;
+    color: #333;
+  }
+  
+  .checkout-row p {
+    margin-top: 10px;
+    color: #555;
+  }
+  
+  /* Button Styling */
+  .place-order-btn {
+    padding: 12px 20px;
+    background-color: #4caf50;
+    color: white;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .place-order-btn:hover {
+    background-color: #45a049;
+  }
+  
