@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './SignupForm.css';
 import axios from 'axios';
 import { GoogleLogin } from '@react-oauth/google';  // Google OAuth
-import FacebookLogin from 'react-facebook-login';  // Facebook OAuth
 
 const SignupForm = () => {
   // State for managing form fields
@@ -178,14 +177,7 @@ const SignupForm = () => {
             theme="outline"
             shape="pill"
           />
-          <FacebookLogin
-            appId="YOUR_FACEBOOK_APP_ID"
-            autoLoad={false}
-            fields="name,email,picture"
-            callback={responseFacebook}
-            textButton="Continue with Facebook"
-            cssClass="facebook-login-btn"
-          />
+          
         </div>
       </div>
     </div>

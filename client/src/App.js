@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
 import Footer from './components/Footer/Footer';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-
+import { UserContext, UserProvider } from './context/UserContext';
+import AppProvider, { AppContext } from './context/AppContext'
 const App = () => {
   const [cart, setCart] = useState([]);
 
@@ -18,9 +19,13 @@ const App = () => {
   return (
     <GoogleOAuthProvider clientId={googleClientId}>
       <Router>
-        <Header />
-        <Main cart={cart} setCart={setCart} />
-        <Footer />
+        <AppProvider>
+          <UserProvider>
+            <Header />
+            <Main cart={cart} setCart={setCart} />
+            <Footer />
+          </UserProvider>
+        </AppProvider>
       </Router>
     </GoogleOAuthProvider>
   );

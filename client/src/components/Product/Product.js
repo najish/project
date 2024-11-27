@@ -51,7 +51,7 @@ const Product = ({ cart, setCart }) => {
                     <Route path='/products/:id' element={<ProductDetails />} />
                 </Routes>
 
-                <h1>Product List</h1>
+                {/* <h1>Product List</h1> */}
                 <div className="product-container-center">
                     <ul className="product-list-container">
                         {products.map((product) => (

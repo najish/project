@@ -1,40 +1,90 @@
-.productdetails-container {
-  max-width: 1200px;
-  /* Limit the width of the container */
-  margin: 0 auto;
-  /* Center the container horizontally */
-  padding: 20px;
-  /* Add some padding inside the container */
-  background-color: #f9f9f9;
-  /* Light background color for contrast */
-  border-radius: 8px;
-  /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  /* Subtle shadow for depth */
-  font-family: 'Arial', sans-serif;
-  /* Set font style */
-
+/* Container for product details */
+.product-details-container {
   display: flex;
-  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
 }
 
+/* Product details card */
+.product-details {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-width: 800px;
+  width: 100%;
+}
 
-.productdetails-container img {
+/* Product image */
+.product-image {
+  flex: 1 1 50%;
+  max-width: 400px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+}
+
+.product-image img {
   max-width: 100%;
-  /* Scale image width to fit container */
-  max-height: 100%;
-  /* Scale image height to fit container */
-  object-fit: contain;
-  /* Maintain aspect ratio */
-
-
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
 }
 
+/* Product info */
+.product-info {
+  flex: 1 1 50%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
+.product-name {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
 
+.product-description {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #555;
+}
 
-.productdetails-container>div {
-  height: 200px;
-  width: 200px;
-  background-color: green;
+.product-price {
+  font-size: 1.5rem;
+  color: #e67e22;
+  margin-bottom: 20px;
+}
+
+.add-to-cart-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #e67e22;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #cf7118;
+}
+
+/* Error and loading styles */
+.loading, .error {
+  font-size: 1.2rem;
+  color: #888;
+  text-align: center;
+  margin-top: 50px;
 }

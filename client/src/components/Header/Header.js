@@ -4,7 +4,7 @@ import { useAuth } from '../../context/AuthContext';
 import { useState } from 'react';
 
 function Header() {
-    const { isLoggedIn, logout } = useAuth();
+    const { isLoggedIn, logout, user } = useAuth();  // Assuming 'user' contains user info (including username)
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -32,7 +32,10 @@ function Header() {
                 </ul>
                 <div className="auth-links">
                     {isLoggedIn ? (
-                        <button onClick={logout} className="btn logout-btn">Logout</button>
+                        <div className="user-info">
+                            <span className="username">{user.username}</span>
+                            <button onClick={logout} className="btn logout-btn">Logout</button>
+                        </div>
                     ) : (
                         <>
                             <Link to="/signup" className="auth-link">SignUp</Link>
