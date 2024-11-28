@@ -18,16 +18,16 @@ const seedData = async () => {
 
     // Insert sample products (real-world product names and details)
     const products = await Product.bulkCreate([
-      { name: 'Apple iPhone 14', description: 'Latest iPhone model with 5G support', price: 999, stockQuantity: 50 },
-      { name: 'Samsung Galaxy S22', description: 'Android smartphone with 120Hz display', price: 849, stockQuantity: 30 },
-      { name: 'Sony WH-1000XM5', description: 'Noise-canceling headphones with premium sound', price: 350, stockQuantity: 40 },
-      { name: 'Dell XPS 13', description: 'Compact and powerful laptop with 16GB RAM', price: 1499, stockQuantity: 25 },
-      { name: 'GoPro HERO10 Black', description: 'Waterproof action camera with 5.3K video', price: 499, stockQuantity: 15 },
-      { name: 'Nike Air Max 270', description: 'Comfortable and stylish sneakers', price: 150, stockQuantity: 60 },
-      { name: 'Amazon Echo Dot 4th Gen', description: 'Smart speaker with Alexa', price: 49, stockQuantity: 100 },
-      { name: 'Nintendo Switch OLED', description: 'Portable gaming console with OLED screen', price: 349, stockQuantity: 35 },
-      { name: 'Apple AirPods Pro 2', description: 'Wireless earbuds with active noise cancellation', price: 249, stockQuantity: 45 },
-      { name: 'HP Envy 32 All-in-One', description: '32-inch 4K monitor with built-in PC', price: 1799, stockQuantity: 10 }
+      { name: 'Apple iPhone 14', description: 'Latest iPhone model with 5G support', price: 999, stockQuantity: 50, imageUrl: '/images/product.jpeg' },
+      { name: 'Samsung Galaxy S22', description: 'Android smartphone with 120Hz display', price: 849, stockQuantity: 30, imageUrl: '/images/product.jpeg' },
+      { name: 'Sony WH-1000XM5', description: 'Noise-canceling headphones with premium sound', price: 350, stockQuantity: 40, imageUrl: '/images/product.jpeg' },
+      { name: 'Dell XPS 13', description: 'Compact and powerful laptop with 16GB RAM', price: 1499, stockQuantity: 25, imageUrl: '/images/product.jpeg' },
+      { name: 'GoPro HERO10 Black', description: 'Waterproof action camera with 5.3K video', price: 499, stockQuantity: 15, imageUrl: '/images/product.jpeg' },
+      { name: 'Nike Air Max 270', description: 'Comfortable and stylish sneakers', price: 150, stockQuantity: 60, imageUrl: '/images/product.jpeg' },
+      { name: 'Amazon Echo Dot 4th Gen', description: 'Smart speaker with Alexa', price: 49, stockQuantity: 100, imageUrl: '/images/product.jpeg' },
+      { name: 'Nintendo Switch OLED', description: 'Portable gaming console with OLED screen', price: 349, stockQuantity: 35, imageUrl: '/images/product.jpeg' },
+      { name: 'Apple AirPods Pro 2', description: 'Wireless earbuds with active noise cancellation', price: 249, stockQuantity: 45, imageUrl: '/images/product.jpeg' },
+      { name: 'HP Envy 32 All-in-One', description: '32-inch 4K monitor with built-in PC', price: 1799, stockQuantity: 10, imageUrl: '/images/product.jpeg' }
     ]);
 
     console.log('Products seeded successfully!');

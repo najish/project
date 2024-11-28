@@ -49,6 +49,7 @@ exports.addProduct = async (req,res) => {
         description,
         price,
         stockQuantity,
+        imageUrl: '/product.jpeg'
       });
   
       return res.status(201).json({

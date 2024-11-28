@@ -7,6 +7,7 @@ import Cart from '../Cart/Cart';
 import ProductDetails from '../Product/ProductDetails';
 import './Main.css'; // Import the styling for main container
 import Checkout from '../Checkout/Checkout';
+import YoutubeForm from '../YoutubeForm'
 
 const Main = ({ cart, setCart }) => {
   return (
@@ -18,6 +19,7 @@ const Main = ({ cart, setCart }) => {
         <Route path="/carts" element={<Cart cart={cart} setCart={setCart} />} />
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/checkout" element={<Checkout cart={cart} />} />
+        <Route path='/youtube' element={<YoutubeForm />} />
         <Route path="/" element={<p>Welcome! Please log in or sign up.</p>} />
       </Routes>
     </main>
