@@ -29,6 +29,16 @@
   text-align: center;
 }
 
+
+.favicon-icon {
+  cursor: pointer;
+  transition: transform 0.3ms ease;
+}
+
+.favicon-icon:hover {
+  transform: scale(1.1)
+}
+
 /* Footer links section */
 .footer-links ul {
   list-style: none;
@@ -70,12 +80,13 @@
 .footer-socials a {
   text-decoration: none;
   color: #fff;
-  font-size: 1.1rem;
-  transition: color 0.3s ease;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .footer-socials a:hover {
   color: #55c2da;
+  transform: scale(1.2); /* Increase icon size on hover */
 }
 
 /* Footer bottom section */

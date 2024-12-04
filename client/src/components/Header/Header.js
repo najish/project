@@ -1,11 +1,12 @@
-import { Link } from 'react-router-dom';
-import './Header.css';
-import { useAuth } from '../../context/AuthContext';
-import { useState } from 'react';
+import { Link } from "react-router-dom";
+import "./Header.css";
+import { useContext, useState } from "react";
+import { UserContext } from "../../context/UserContext";
+import { FaShoppingCart, FaUser, FaSignOutAlt, FaBars } from "react-icons/fa";
 
 function Header() {
-    const { isLoggedIn, logout, user } = useAuth();  // Assuming 'user' contains user info (including username)
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { user, logout, isLoggedIn } = useContext(UserContext);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -20,26 +21,42 @@ function Header() {
             </div>
             <nav>
                 <div className="hamburger" onClick={toggleMenu}>
-                    <div className="bar"></div>
-                    <div className="bar"></div>
-                    <div className="bar"></div>
+                    <FaBars size={24} />
                 </div>
-                <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/products">Products</Link></li>
-                    <li><Link to="/about">About</Link></li>
-                    <li><Link to="/carts">Cart</Link></li>
+                <ul className={`nav-links ${isMenuOpen ? "active" : ""}`}>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/products">Products</Link>
+                    </li>
+                    <li>
+                        <Link to="/about">About</Link>
+                    </li>
+                    <li>
+                        <Link to="/carts">
+                            Cart <FaShoppingCart />
+                        </Link>
+                    </li>
                 </ul>
                 <div className="auth-links">
                     {isLoggedIn ? (
                         <div className="user-info">
-                            <span className="username">{user.username}</span>
-                            <button onClick={logout} className="btn logout-btn">Logout</button>
+                            <span className="username">
+                                <FaUser /> {user.username}
+                            </span>
+                            <button onClick={logout} className="btn logout-btn">
+                                Logout <FaSignOutAlt />
+                            </button>
                         </div>
                     ) : (
                         <>
-                            <Link to="/signup" className="auth-link">SignUp</Link>
-                            <Link to="/login" className="auth-link">Login</Link>
+                            <Link to="/signup" className="auth-link">
+                                Sign Up
+                            </Link>
+                            <Link to="/login" className="auth-link">
+                                Login
+                            </Link>
                         </>
                     )}
                 </div>

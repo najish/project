@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import './Login.css'; // Import the CSS for the login form
+import React, { useState, useContext } from 'react';
+import './LoginForm.css'; // Import the CSS for the login form
 import axios from 'axios';
-import { useAuth } from '../../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { GoogleLogin } from '@react-oauth/google';
+import { UserContext } from '../../../context/UserContext';
 
 const LoginForm = () => {
-  const { login } = useAuth();
+  const { login } = useContext(UserContext);
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -14,7 +14,7 @@ const LoginForm = () => {
 
   const validate = () => {
     const errors = {};
-    if (!formData.email.includes('@')) errors.email = 'Invalid email format : satoshi';
+    if (!formData.email.includes('@')) errors.email = 'Invalid email format';
     if (formData.password.length < 6) errors.password = 'Password must be at least 6 characters';
     return errors;
   };
@@ -37,15 +37,26 @@ const LoginForm = () => {
       const loginUrl = process.env.REACT_APP_SERVER_API_URL;
       const response = await axios.post(`${loginUrl}/auth/login`, formData);
       localStorage.setItem('token', response.data.token);
-      login();
+      login(response.data.user);
       navigate('/products');
     } catch (error) {
       console.error('Login error:', error);
     }
   };
 
-  const handleGoogleSuccess = (response) => {
-    console.log('Google login success:', response);
+  const handleGoogleSuccess = async (response) => {
+    try {
+      const { credential } = response;
+      console.log('credential', credential)
+      const loginUrl = process.env.REACT_APP_SERVER_API_URL;
+      const responseFromServer = await axios.post(`${loginUrl}/auth/google`, { token: credential });
+
+      localStorage.setItem('token', responseFromServer.data.token);
+      login(responseFromServer.data.user);
+      navigate('/products');
+    } catch (error) {
+      console.error('Google login error:', error);
+    }
   };
 
   const handleGoogleFailure = () => {
@@ -68,7 +79,7 @@ const LoginForm = () => {
               onChange={handleInputChange}
               placeholder="Enter your email"
             />
-            {errors.email && <p className="error-message" style={{color: 'red'}}>{errors.email}</p>}
+            {errors.email && <p className="error-message" style={{ color: 'red' }}>{errors.email}</p>}
           </div>
 
           <div className="form-group">
@@ -82,7 +93,7 @@ const LoginForm = () => {
               onChange={handleInputChange}
               placeholder="Enter your password"
             />
-            {errors.password && <p className="error-message" style={{color: "red"}}>{errors.password}</p>}
+            {errors.password && <p className="error-message" style={{ color: "red" }}>{errors.password}</p>}
           </div>
 
           <div className="btn-group">
@@ -92,22 +103,15 @@ const LoginForm = () => {
             </button>
           </div>
 
-          <div className="oauth-container">
-            <GoogleLogin
-              onSuccess={handleGoogleSuccess}
-              onError={handleGoogleFailure}
-              render={(renderProps) => (
-                <button
-                  onClick={renderProps.onClick}
-                  disabled={renderProps.disabled}
-                  className="google-btn"
-                >
-                  Google Login
-                </button>
-              )}
-            />
-          </div>
         </form>
+        <div className="oauth-container">
+          <GoogleLogin
+            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+            onSuccess={handleGoogleSuccess}
+            onError={handleGoogleFailure}
+            useOneTap={false}
+          />
+        </div>
       </div>
     </div>
   );

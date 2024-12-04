@@ -2,18 +2,25 @@ const Product = require('../models/Product')
 
 
 
-exports.getProducts = async (req,res) => {
-    try {
-      const products = await Product.findAll()
+exports.getProducts = async (req, res) => {
+  try {
+      // Wrapping setTimeout in a promise to delay the response
+      await new Promise(resolve => setTimeout(resolve, 2000)); // 3-second delay
+
+      // Fetching products from the database
+      const products = await Product.findAll();
+
+      // Sending the response after the delay
       return res.status(200).json({
-        message: 'Products are fetched successfully',
-        products: products
-      })
-    } catch(err) {
-      console.error('Error get Products',err)
-      return res.status(500).json({error: 'Internal Server Error'})
-    }
-}
+          message: 'Products are fetched successfully',
+          products: products
+      });
+  } catch (err) {
+      console.error('Error get Products', err);
+      return res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
 
 exports.getProduct = async (req,res) => {
   try {

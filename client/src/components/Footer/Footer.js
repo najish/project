@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-logo">
           <h2>
-            <img src='/favicon_io/favicon.ico' alt='Logo' />
+            <img src='/favicon_io/favicon.ico' alt='Logo' className='favicon-icon'/>
           </h2>
         </div>
         <div className="footer-links">

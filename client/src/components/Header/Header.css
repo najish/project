@@ -1,6 +1,5 @@
 /* Header container styling */
 .header {
-    color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -8,11 +7,12 @@
     background-color: #333;
     min-height: 70px;
     position: relative;
+    color: white;
 }
 
 /* Logo Styling */
 .logo-img {
-    width: 60px; /* Increased size of the logo */
+    width: 60px;
     height: 60px;
     object-fit: contain;
     transition: transform 0.3s ease;
@@ -22,16 +22,11 @@
     transform: scale(1.1);
 }
 
-.logo a {
-    color: #fff;
-    text-decoration: none;
-}
-
-/* Navigation container */
+/* Navigation Container */
 nav {
     display: flex;
     align-items: center;
-    width: 100%; /* To allow flex container to stretch */
+    width: 100%;
     justify-content: space-between;
 }
 
@@ -50,20 +45,23 @@ nav {
 .nav-links a {
     text-decoration: none;
     color: white;
-    font-size: 1.2em; /* Increased font size for better readability */
+    font-size: 1.2em;
     font-weight: bold;
     transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .nav-links a:hover {
     color: #55c2da;
 }
 
-/* Buttons container */
+/* Authentication Buttons */
 .auth-links {
     display: flex;
     gap: 15px;
-    margin-left: auto; /* Aligns the auth buttons to the right */
+    margin-left: auto;
 }
 
 .auth-link {
@@ -79,6 +77,14 @@ nav {
 
 .auth-link:hover {
     background-color: #e66c3c;
+}
+
+.username {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: bold;
+    color: #ffdd57;
 }
 
 /* Logout button styling */
@@ -97,24 +103,20 @@ nav {
     background-color: #e66c3c;
 }
 
-/* Mobile Hamburger Menu */
+/* Hamburger Menu */
 .hamburger {
     display: none;
-    flex-direction: column;
-    gap: 5px;
     cursor: pointer;
 }
 
-.hamburger .bar {
-    width: 30px;
-    height: 4px;
-    background-color: #fff;
-    border-radius: 5px;
+.hamburger svg {
+    color: white;
 }
 
 /* Show Mobile Navigation */
 .nav-links.active {
-    display: block;
+    display: flex;
+    flex-direction: column;
     position: absolute;
     top: 70px;
     right: 0;
@@ -125,7 +127,7 @@ nav {
     z-index: 1;
 }
 
-/* For larger screens, navigation is horizontal */
+/* Media Queries for Responsiveness */
 @media (min-width: 768px) {
     .hamburger {
         display: none;
@@ -136,15 +138,12 @@ nav {
     }
 }
 
-/* For small screens, the hamburger menu appears */
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        gap: 15px;
-    }
     .hamburger {
         display: flex;
+    }
+    .nav-links {
+        display: none;
     }
     .nav-links.active {
         display: flex;

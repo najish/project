@@ -1,73 +1,93 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup"; // For form validation
 import './ShippingDetails.css';
+import axios from "axios";
 
 function ShippingDetails() {
-    const [shippingInfo, setShippingInfo] = useState({
-        name: '',
-        address: '',
-        city: '',
-        state: '',
-        zip: '',
-        phone: ''
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    // Define form validation schema using Yup
+    const validationSchema = Yup.object({
+        name: Yup.string().required("Full Name is required"),
+        addressLine: Yup.string().required("Address Line is required"),
+        city: Yup.string().required("City is required"),
+        state: Yup.string().required("State is required"),
+        postalCode: Yup.string()
+            .matches(/^\d{5}$/, "Postal Code must be 5 digits")
+            .required("Postal Code is required"),
+        country: Yup.string().required("Country is required"),
+        phoneNumber: Yup.string()
+            .matches(/^\d{10}$/, "Phone number must be 10 digits")
+            .required("Phone number is required"),
     });
 
-    const [errors, setErrors] = useState({});
-    
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setShippingInfo({
-            ...shippingInfo,
-            [name]: value
-        });
-    };
+    // Initialize Formik with form values, validation, and submission
+    const formik = useFormik({
+        initialValues: {
+            name: '',
+            addressLine: '',
+            city: '',
+            state: '',
+            postalCode: '',
+            country: '',
+            phoneNumber: '',
+        },
+        validationSchema: validationSchema,
+        onSubmit: async (values) => {
+            setIsSubmitting(true);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (validateForm()) {
-            // Submit the shipping info (e.g., save to database, proceed to payment)
-            console.log("Shipping Info Submitted", shippingInfo);
+            try {
+                const formData = {
+                    ...values,
+                    username: 'najish.eqbal',
+                    email: 'najish.eqbal@gmail.com'
+                };
+                const response = await axios.post(`${process.env.REACT_APP_SERVER_API_URL}/shipping`, formData);
+                console.log("Shipping Info Submitted:", response.data);
+                setIsSubmitting(false);
+            } catch (err) {
+                console.error("Error submitting shipping details:", err);
+                setIsSubmitting(false);
+            }
+        },
+    });
+
+    useEffect(() => {
+        if (isSubmitting) {
+            console.log("Submitting form...");
         }
-    };
-
-    const validateForm = () => {
-        const newErrors = {};
-        if (!shippingInfo.name) newErrors.name = "Name is required";
-        if (!shippingInfo.address) newErrors.address = "Address is required";
-        if (!shippingInfo.city) newErrors.city = "City is required";
-        if (!shippingInfo.state) newErrors.state = "State is required";
-        if (!shippingInfo.zip || !/^\d{5}$/.test(shippingInfo.zip)) newErrors.zip = "Valid zip code is required";
-        if (!shippingInfo.phone || !/^\d{10}$/.test(shippingInfo.phone)) newErrors.phone = "Valid phone number is required";
-        setErrors(newErrors);
-        return Object.keys(newErrors).length === 0;
-    };
+    }, [isSubmitting]);
 
     return (
         <div className="shipping-details">
             <h2>Shipping Details</h2>
-            <form onSubmit={handleSubmit} className="shipping-form">
+            <form className="shipping-form" onSubmit={formik.handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="name">Full Name</label>
                     <input
                         type="text"
                         id="name"
                         name="name"
-                        value={shippingInfo.name}
-                        onChange={handleChange}
+                        value={formik.values.name}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                         placeholder="Enter your full name"
                     />
-                    {errors.name && <span className="error">{errors.name}</span>}
+                    {formik.touched.name && formik.errors.name && <span className="error">{formik.errors.name}</span>}
                 </div>
                 <div className="form-group">
-                    <label htmlFor="address">Address</label>
+                    <label htmlFor="addressLine">Address Line</label>
                     <input
                         type="text"
-                        id="address"
-                        name="address"
-                        value={shippingInfo.address}
-                        onChange={handleChange}
-                        placeholder="Enter your address"
+                        id="addressLine"
+                        name="addressLine"
+                        value={formik.values.addressLine}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        placeholder="Enter your address line"
                     />
-                    {errors.address && <span className="error">{errors.address}</span>}
+                    {formik.touched.addressLine && formik.errors.addressLine && <span className="error">{formik.errors.addressLine}</span>}
                 </div>
                 <div className="form-group">
                     <label htmlFor="city">City</label>
@@ -75,11 +95,12 @@ function ShippingDetails() {
                         type="text"
                         id="city"
                         name="city"
-                        value={shippingInfo.city}
-                        onChange={handleChange}
+                        value={formik.values.city}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                         placeholder="Enter your city"
                     />
-                    {errors.city && <span className="error">{errors.city}</span>}
+                    {formik.touched.city && formik.errors.city && <span className="error">{formik.errors.city}</span>}
                 </div>
                 <div className="form-group">
                     <label htmlFor="state">State</label>
@@ -87,37 +108,55 @@ function ShippingDetails() {
                         type="text"
                         id="state"
                         name="state"
-                        value={shippingInfo.state}
-                        onChange={handleChange}
+                        value={formik.values.state}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                         placeholder="Enter your state"
                     />
-                    {errors.state && <span className="error">{errors.state}</span>}
+                    {formik.touched.state && formik.errors.state && <span className="error">{formik.errors.state}</span>}
                 </div>
                 <div className="form-group">
-                    <label htmlFor="zip">Zip Code</label>
+                    <label htmlFor="postalCode">Postal Code</label>
                     <input
                         type="text"
-                        id="zip"
-                        name="zip"
-                        value={shippingInfo.zip}
-                        onChange={handleChange}
-                        placeholder="Enter your zip code"
+                        id="postalCode"
+                        name="postalCode"
+                        value={formik.values.postalCode}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        placeholder="Enter your postal code"
                     />
-                    {errors.zip && <span className="error">{errors.zip}</span>}
+                    {formik.touched.postalCode && formik.errors.postalCode && <span className="error">{formik.errors.postalCode}</span>}
                 </div>
                 <div className="form-group">
-                    <label htmlFor="phone">Phone Number</label>
+                    <label htmlFor="country">Country</label>
                     <input
                         type="text"
-                        id="phone"
-                        name="phone"
-                        value={shippingInfo.phone}
-                        onChange={handleChange}
+                        id="country"
+                        name="country"
+                        value={formik.values.country}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        placeholder="Enter your country"
+                    />
+                    {formik.touched.country && formik.errors.country && <span className="error">{formik.errors.country}</span>}
+                </div>
+                <div className="form-group">
+                    <label htmlFor="phoneNumber">Phone Number</label>
+                    <input
+                        type="text"
+                        id="phoneNumber"
+                        name="phoneNumber"
+                        value={formik.values.phoneNumber}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                         placeholder="Enter your phone number"
                     />
-                    {errors.phone && <span className="error">{errors.phone}</span>}
+                    {formik.touched.phoneNumber && formik.errors.phoneNumber && <span className="error">{formik.errors.phoneNumber}</span>}
                 </div>
-                <button type="submit" className="submit-btn">Submit Shipping Info</button>
+                <button type="submit" className="submit-btn" disabled={isSubmitting}>
+                    {isSubmitting ? "Submitting..." : "Submit Shipping Info"}
+                </button>
             </form>
         </div>
     );
