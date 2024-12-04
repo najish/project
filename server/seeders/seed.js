@@ -1,80 +1,33 @@
 const User = require('../models/User')
-const seedUserData = async () => {
+const fs = require('fs').promises
+const path = require('path')
+
+const readFileData = async(fileName) => {
     try {
-        const response = await User.bulkCreate([
-            {
-                "id": 1,
-                "firstName": "John",
-                "lastName": "Doe",
-                "username": "johndoe123",
-                "email": "johndoe@example.com",
-                "password": "$2b$10$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36LyrAVwNqJo/Tf.xPH6EFK",
-                "googleId": null,
-                "facebookId": null,
-                "profilePicture": "https://example.com/images/john_doe.jpg",
-                "createdAt": "2024-12-04T08:15:30.000Z",
-                "updatedAt": "2024-12-04T08:15:30.000Z"
-            },
-            {
-                "id": 2,
-                "firstName": "Jane",
-                "lastName": "Smith",
-                "username": "janesmith",
-                "email": "janesmith@gmail.com",
-                "password": null,
-                "googleId": "123456789-google",
-                "facebookId": null,
-                "profilePicture": "https://example.com/images/jane_smith.jpg",
-                "createdAt": "2024-12-03T14:22:10.000Z",
-                "updatedAt": "2024-12-03T14:22:10.000Z"
-            },
-            {
-                "id": 3,
-                "firstName": "Michael",
-                "lastName": "Brown",
-                "username": "mikebrown",
-                "email": "mikebrown@yahoo.com",
-                "password": null,
-                "googleId": null,
-                "facebookId": "987654321-facebook",
-                "profilePicture": null,
-                "createdAt": "2024-11-30T12:45:00.000Z",
-                "updatedAt": "2024-11-30T12:45:00.000Z"
-            },
-            {
-                "id": 4,
-                "firstName": "Emily",
-                "lastName": "Davis",
-                "username": "emilyd123",
-                "email": "emilydavis@example.org",
-                "password": "$2b$10$a1b2c3d4EfgHijkLmnOqrst/uvwXYz1234567890abcdefgHijkLmnOpQ",
-                "googleId": null,
-                "facebookId": null,
-                "profilePicture": "https://example.com/images/emily_davis.png",
-                "createdAt": "2024-12-01T09:30:45.000Z",
-                "updatedAt": "2024-12-01T09:30:45.000Z"
-            },
-            {
-                "id": 5,
-                "firstName": "Chris",
-                "lastName": "Wilson",
-                "username": "chrisw",
-                "email": "chriswilson@hotmail.com",
-                "password": null,
-                "googleId": "google-unique-id-54321",
-                "facebookId": "facebook-unique-id-12345",
-                "profilePicture": null,
-                "createdAt": "2024-11-29T16:00:00.000Z",
-                "updatedAt": "2024-11-29T16:00:00.000Z"
-            }
-        ])
-
-        console.log('User data is seeded')
-
-    } catch (err) {
-        console.error('failed to seed user data', err)
+        const filePath = path.join(__dirname, "Data", fileName)
+        const data = await fs.readFile(filePath, 'utf8')
+        return JSON.parse(data) 
+    } catch(err) {
+        console.error(fileName, err)
     }
 }
+
+const seedData = async (model, fileName) => {
+    try {
+        const data = await readFileData(fileName)
+        await model.bulkCreate(data)
+        console.log(`${fileName} data seeded!`)
+    } catch(err) {
+        console.error(err)
+    }   
+}
+
+
+
+const seedUserData = async () => {
+    
+}
+
 
 
 module.exports = {seedUserData}
