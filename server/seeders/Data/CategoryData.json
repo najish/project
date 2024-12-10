@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "categoryName": "Electronics",
+        "description": "Devices and gadgets for everyday use.",
+        "createdAt": "2024-12-01T10:00:00Z",
+        "updatedAt": "2024-12-01T10:00:00Z"
+    },
+    {
+        "id": 2,
+        "categoryName": "Home Appliances",
+        "description": "Essential appliances for household tasks.",
+        "createdAt": "2024-12-02T11:00:00Z",
+        "updatedAt": "2024-12-02T11:00:00Z"
+    },
+    {
+        "id": 3,
+        "categoryName": "Fashion",
+        "description": "Clothing, accessories, and style essentials.",
+        "createdAt": "2024-12-03T12:00:00Z",
+        "updatedAt": "2024-12-03T12:00:00Z"
+    },
+    {
+        "id": 4,
+        "categoryName": "Books",
+        "description": "A wide range of books across genres.",
+        "createdAt": "2024-12-04T13:00:00Z",
+        "updatedAt": "2024-12-04T13:00:00Z"
+    },
+    {
+        "id": 5,
+        "categoryName": "Sports",
+        "description": "Sports equipment and outdoor gear.",
+        "createdAt": "2024-12-05T14:00:00Z",
+        "updatedAt": "2024-12-05T14:00:00Z"
+    },
+    {
+        "id": 6,
+        "categoryName": "Beauty and Health",
+        "description": "Skincare, cosmetics, and health products.",
+        "createdAt": "2024-12-06T15:00:00Z",
+        "updatedAt": "2024-12-06T15:00:00Z"
+    },
+    {
+        "id": 7,
+        "categoryName": "Toys",
+        "description": "Toys and games for children of all ages.",
+        "createdAt": "2024-12-07T16:00:00Z",
+        "updatedAt": "2024-12-07T16:00:00Z"
+    },
+    {
+        "id": 8,
+        "categoryName": "Automotive",
+        "description": "Car accessories and automotive tools.",
+        "createdAt": "2024-12-08T17:00:00Z",
+        "updatedAt": "2024-12-08T17:00:00Z"
+    },
+    {
+        "id": 9,
+        "categoryName": "Furniture",
+        "description": "Furniture for home and office use.",
+        "createdAt": "2024-12-09T18:00:00Z",
+        "updatedAt": "2024-12-09T18:00:00Z"
+    },
+    {
+        "id": 10,
+        "categoryName": "Groceries",
+        "description": "Everyday essentials and pantry staples.",
+        "createdAt": "2024-12-10T19:00:00Z",
+        "updatedAt": "2024-12-10T19:00:00Z"
+    }
+]

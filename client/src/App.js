@@ -7,6 +7,10 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import { UserProvider } from './context/UserContext';
 import AppProvider from './context/AppContext';
 import appRoutes from '../src/routes/routes'; // Ensure correct path to routes
+import RoleBasedLayout from './components/RoleBasedLayout';
+import AdminLayout from './components/layout/AdminLayout';
+import UserLayout from './components/layout/UserLayout';
+
 
 const App = () => {
   const [cart, setCart] = useState([]);
@@ -28,9 +32,22 @@ const App = () => {
       <Router>
         <AppProvider>
           <UserProvider>
-            <Header />
+
+            {/* <Header />
             <Main cart={cart} setCart={setCart} />
-            <Footer />
+            <Footer /> */}
+
+
+            <Routes>
+              {/* Shared Role based layout */}
+              <Route path='/' element={<RoleBasedLayout />} />
+
+              {/* Admin Routes */}
+              <Route path='/admin/dashboard' element={<AdminLayout />} />
+
+              {/* User Routes */}
+              <Route path='home' element={<UserLayout />} />
+            </Routes>
           </UserProvider>
         </AppProvider>
       </Router>

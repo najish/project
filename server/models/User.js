@@ -27,18 +27,23 @@ const User = sequelize.define('User', {
         validate: {
             isEmail: true,
         },
-        after: 'username'
     },
     password: {
         type: DataTypes.STRING,
         allowNull: true, // Nullable for OAuth users
-        after: 'email'
+    },
+
+    role : {
+        type: DataTypes.ENUM('admin', 'user'),
+        allowNull: false,
+        defaultValue: 'user'
     },
     googleId: {
         type: DataTypes.STRING,
         allowNull: true,
         unique: true, // Ensure no duplicate Google IDs
     },
+    
     facebookId: {
         type: DataTypes.STRING,
         allowNull: true,

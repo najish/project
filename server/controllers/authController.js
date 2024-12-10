@@ -2,13 +2,14 @@ const bcrypt = require('bcrypt')
 const User = require('../models/User')
 const jwt = require('jsonwebtoken')
 exports.signup = async (req, res) => {
-    const { username, email, password } = req.body
+    const { username, email, password, firstName, lastName } = req. body
     try {
         // Check if email or username already exists
         const existingUser = await User.findOne({where: {email}})
         if (existingUser) {
-            return res.status(400).json({ message: 'Email already in use' });
+            return res.status(400).json({ message: 'Email already in use & user already exists' });
         }
+
 
         // Hash the password
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -18,6 +19,8 @@ exports.signup = async (req, res) => {
             username,
             email,
             password: hashedPassword,
+            firstName,
+            lastName
         });
 
         return res.status(201).json({
@@ -25,12 +28,14 @@ exports.signup = async (req, res) => {
             user: {
                 username: newUser.username,
                 email: newUser.email,
+                role: newUser.role
             },
         });
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Server error' });
     }
+
 }
 
 

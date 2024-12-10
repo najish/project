@@ -50,3 +50,12 @@ side price details
 Day4 (19/11/2024)
 =========================
 1. Update the 
+
+
+
+
+
+Day: (05/ 12 / 2024)
+========================
+1. add api routes ✅
+2. seed Product data 

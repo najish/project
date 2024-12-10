@@ -1,31 +1,30 @@
-const Product = require('../models/Product')
+// const Product = require('../models/Product')
 
+const { Product } = require('../models/associations')
 
 
 exports.getProducts = async (req, res) => {
   try {
-      // Wrapping setTimeout in a promise to delay the response
-      await new Promise(resolve => setTimeout(resolve, 2000)); // 3-second delay
 
-      // Fetching products from the database
-      const products = await Product.findAll();
+    // Fetching products from the database
+    const products = await Product.findAll();
 
-      // Sending the response after the delay
-      return res.status(200).json({
-          message: 'Products are fetched successfully',
-          products: products
-      });
+    // Sending the response after the delay
+    return res.status(200).json({
+      message: 'Products are fetched successfully',
+      products: products
+    });
   } catch (err) {
-      console.error('Error get Products', err);
-      return res.status(500).json({ error: 'Internal Server Error' });
+    console.error('Error get Products', err);
+    return res.status(500).json({ error: 'Internal Server Error' });
   }
 };
 
 
-exports.getProduct = async (req,res) => {
+exports.getProduct = async (req, res) => {
   try {
     const id = req.params.id
-    const product = await Product.findOne({where: {id}})
+    const product = await Product.findOne({ where: { id } })
     if (!product) {
       return res.status(404).json({ error: 'Product not found' });
     }
@@ -33,40 +32,51 @@ exports.getProduct = async (req,res) => {
       message: 'Product Received!',
       product: product
     })
-  } catch(err) {
-    console.error('Error get product',err)
-    return res.status(500).json({error: 'Internal Server Error'})
+  } catch (err) {
+    console.error('Error get product', err)
+    return res.status(500).json({ error: 'Internal Server Error' })
   }
 }
 
 
 
-exports.addProduct = async (req,res) => {
+exports.addProduct = async (req, res) => {
   try {
-      const { name, description, price, stockQuantity } = req.body;
-  
-      // Validate request
-      if (!name || !price || !stockQuantity) {
-        return res.status(400).json({ error: 'Name, price, and stockQuantity are required' });
-      }
-  
-      // Add product to database
-      const newProduct = await Product.create({
-        name,
-        description,
-        price,
-        stockQuantity,
-        imageUrl: '/product.jpeg'
-      });
-  
-      return res.status(201).json({
-        message: 'Product added successfully',
-        product: newProduct,
-      });
-    } catch (error) {
-      console.error('Error adding product:', error);
-      return res.status(500).json({ error: 'Internal Server Error' });
+    const { name, description, price, stockQuantity, categoryId } = req.body;
+
+    // Validate request body
+    if (!name || !price || !stockQuantity || !categoryId) {
+      return res.status(400).json({ error: 'Name, price, stockQuantity, and categoryId are required' });
     }
+
+    // Validate uploaded file
+    if (!req.file) {
+      return res.status(400).json({ error: 'Product image is required' });
+    }
+
+    // Construct image URL from uploaded file
+    const imageUrl = `uploads/productImages/${req.file.filename}`;
+
+    // Add product to database
+    const newProduct = await Product.create({
+      name,
+      description,
+      price,
+      stockQuantity,
+      imageUrl,
+      categoryId,
+    });
+
+    // Respond with the created product
+    return res.status(201).json({
+      message: 'Product added successfully',
+      product: newProduct,
+    });
+
+  } catch (error) {
+    console.error('Error adding product:', error);
+    return res.status(500).json({ error: 'Internal Server Error' });
+  }
 }
 
 exports.editProduct = async (req, res) => {
@@ -131,4 +141,4 @@ exports.deleteProduct = async (req, res) => {
 };
 
 
-    
+
