@@ -3,7 +3,7 @@ const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
-const {authenticate} = require('./config/database')
+const { authenticate } = require('./config/database')
 const { sequelize } = require('./models/associations');
 const { seedAllModel } = require('./seeders/seed');
 const apiRoutes = require('./routes/index');
@@ -57,14 +57,25 @@ app.use((req, res, next) => {
 // Database synchronization and seeding
 
 // sequelize.authenticate().then(() => console.log('Connected')).catch(err => console.error(err))
-asyncHandler(async () => {
-  await authenticate()
-  await sequelize.sync({force: true})
-  console.log('database synced')
-  await seedAllModel()
-})
+// asyncHandler(async () => {
+//   await authenticate()
+//   await sequelize.sync({force: true})
+//   console.log('database synced')
+//   await seedAllModel()
+// })
+
+
 
 // Error handler middleware (should be the last one)
+const startApp = async () => {
+  try {
+    await authenticate()
+    await sequelize.sync({force: true})
+    await seedAllModel()
+  } catch(err) {
+    console.log('Error starting application:', err)
+  }
+}
 
 
 // Global error handler in app.js or server.js
@@ -76,3 +87,6 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+
+startApp()

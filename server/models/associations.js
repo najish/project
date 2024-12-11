@@ -1,4 +1,4 @@
-const {sequelize} = require('../config/database')
+const {sequelize, authenticate} = require('../config/database')
 const User = require('./User')
 const Another = require('./Another')
 const Address = require('./Address')
@@ -11,13 +11,9 @@ const Product = require('./Product')
 const Shifa = require('./Shifa')
 const ShippingAddress = require('./ShippingAddress')
 const asyncHandler = require('../middlewares/asyncHandler')
+const setupAssociations = require('./setupAssociation')
 
-// Category and Product
-
-Category.hasMany(Product, {foreignKey: "categoryId", as: "products"})
-Product.belongsTo(Category, {foreignKey: "categoryId", as: "categories"})
-
-
+setupAssociations({Category, Product})
 
 
 

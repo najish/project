@@ -26,9 +26,9 @@ const seedData = async (model, fileName) => {
     // If table is empty, seed data
     const data = await readFileData(fileName);
     await model.bulkCreate(data);
-    console.log(`${model.name} Data Seeded`);
+    console.log(`${fileName} Data Seeded`);
   } catch (err) {
-    console.error(`Error seeding ${model.name}:`, err);
+    console.error(`Error seeding ${fileName}:`, err);
     throw err;
   }
 };

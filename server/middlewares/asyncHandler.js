@@ -1,7 +1,11 @@
-const fs = require('fs/promises')
-const asyncHandler = async (func) => {
-    return func().catch(err => console.error(err.message,err))
+const asyncHander = (fn) => {
+    return async (req,res,next) => {
+        try {
+            await fn(req,res,next)
+        } catch(err) {
+            next(err)
+        }
+    }
 }
 
-
-module.exports = asyncHandler
+module.exports = asyncHander

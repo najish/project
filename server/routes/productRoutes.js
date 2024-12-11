@@ -6,7 +6,7 @@ const upload = require('../config/multerConfig')
 
 
 router.route('/')
-    .get(productController.getProduct)
+    .get(productController.getProducts)
     .post(productController.addProduct)
 
 router.route('/:id')
