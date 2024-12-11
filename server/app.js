@@ -59,7 +59,7 @@ app.use((req, res, next) => {
 // sequelize.authenticate().then(() => console.log('Connected')).catch(err => console.error(err))
 asyncHandler(async () => {
   await authenticate()
-  await sequelize.sync({alter: true})
+  await sequelize.sync({force: true})
   console.log('database synced')
   await seedAllModel()
 })
