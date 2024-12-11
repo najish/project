@@ -1,7 +1,6 @@
 const fs = require('fs').promises;
 const path = require('path');
-const asyncHandler = require('../utils/asyncHandler');
-const { Product, User, Cart, Category, Address } = require('../models/associations');
+const { Product, User, Cart, Category } = require('../models/associations');
 
 // Utility function to read data from a JSON file
 const readFileData = async (fileName) => {

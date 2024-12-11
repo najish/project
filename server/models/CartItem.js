@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
+const {sequelize} = require('../config/database');
 const Cart = require('./Cart');  // Importing Cart model for association
 
 const CartItem = sequelize.define('CartItem', {
