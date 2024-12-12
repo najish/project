@@ -5,21 +5,19 @@ const getCategories = async (req, res) => {
     try {
         const cacheKey = 'categories'
         const cachedData = await redisClient.get(cacheKey)
-        
-        if(cachedData) {
+
+        if (cachedData) {
             return res.status(200).json({
                 message: 'data return from redis',
                 data: JSON.parse(cachedData)
             })
         }
-        setTimeout(async () => {
-            const categories = await Category.findAll();
-            await redisClient.setex(cacheKey, 10, JSON.stringify(categories))
-            return res.json({
-                message: 'Categories data have fetched!',
-                categories
-            });
-        },3000)
+        const categories = await Category.findAll();
+        await redisClient.setex(cacheKey, 10, JSON.stringify(categories))
+        return res.json({
+            message: 'Categories data have fetched!',
+            categories
+        });
     } catch (err) {
         console.error(err);
         return res.status(500).json({ error: 'Internal Server Error' });
@@ -33,14 +31,14 @@ const getCategory = async (req, res) => {
         const cacheKey = `category:${id}`
 
         const cachedData = await redisClient.get(cacheKey)
-        if(cachedData) {
+        if (cachedData) {
             return res.status(200).json({
                 message: "data send from redis",
                 data: JSON.parse(cachedData)
             })
         }
         const category = await Category.findByPk(id);
-        await redisClient.setex(cacheKey,10, JSON.stringify(category))
+        await redisClient.setex(cacheKey, 10, JSON.stringify(category))
         if (!category) {
             return res.status(404).json({ error: 'Category not found' });
         }
