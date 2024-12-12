@@ -15,6 +15,22 @@ const Order = sequelize.define('Order', {
     type: DataTypes.FLOAT,
     allowNull: false,
   },
+  addressId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: "address",
+      key: "id"
+    }
+  },
+  userId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: "users",
+      key: "id"
+    }
+  }
 }, {
   timestamps: false,
   tableName: 'orders'

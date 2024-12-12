@@ -1,0 +1,142 @@
+[
+    {
+        "id": 1,
+        "orderStatus": "processing",
+        "totalPrice": 175.50,
+        "addressId": 1,
+        "userId": 1
+    },
+    {
+        "id": 2,
+        "orderStatus": "shipped",
+        "totalPrice": 90.00,
+        "addressId": 2,
+        "userId": 2
+    },
+    {
+        "id": 3,
+        "orderStatus": "delivered",
+        "totalPrice": 320.75,
+        "addressId": 3,
+        "userId": 3
+    },
+    {
+        "id": 4,
+        "orderStatus": "pending",
+        "totalPrice": 60.20,
+        "addressId": 4,
+        "userId": 4
+    },
+    {
+        "id": 5,
+        "orderStatus": "cancelled",
+        "totalPrice": 5.00,
+        "addressId": 5,
+        "userId": 5
+    },
+    {
+        "id": 6,
+        "orderStatus": "processing",
+        "totalPrice": 129.99,
+        "addressId": 6,
+        "userId": 6
+    },
+    {
+        "id": 7,
+        "orderStatus": "shipped",
+        "totalPrice": 115.00,
+        "addressId": 7,
+        "userId": 7
+    },
+    {
+        "id": 8,
+        "orderStatus": "delivered",
+        "totalPrice": 200.50,
+        "addressId": 8,
+        "userId": 8
+    },
+    {
+        "id": 9,
+        "orderStatus": "pending",
+        "totalPrice": 45.75,
+        "addressId": 9,
+        "userId": 9
+    },
+    {
+        "id": 10,
+        "orderStatus": "processing",
+        "totalPrice": 190.00,
+        "addressId": 10,
+        "userId": 10
+    },
+    {
+        "id": 11,
+        "orderStatus": "shipped",
+        "totalPrice": 80.00,
+        "addressId": 11,
+        "userId": 1
+    },
+    {
+        "id": 12,
+        "orderStatus": "delivered",
+        "totalPrice": 280.75,
+        "addressId": 12,
+        "userId": 2
+    },
+    {
+        "id": 13,
+        "orderStatus": "pending",
+        "totalPrice": 50.20,
+        "addressId": 13,
+        "userId": 3
+    },
+    {
+        "id": 14,
+        "orderStatus": "cancelled",
+        "totalPrice": 0.00,
+        "addressId": 14,
+        "userId": 4
+    },
+    {
+        "id": 15,
+        "orderStatus": "processing",
+        "totalPrice": 139.99,
+        "addressId": 15,
+        "userId": 5
+    },
+    {
+        "id": 16,
+        "orderStatus": "shipped",
+        "totalPrice": 125.00,
+        "addressId": 16,
+        "userId": 6
+    },
+    {
+        "id": 17,
+        "orderStatus": "delivered",
+        "totalPrice": 210.50,
+        "addressId": 17,
+        "userId": 7
+    },
+    {
+        "id": 18,
+        "orderStatus": "pending",
+        "totalPrice": 35.75,
+        "addressId": 18,
+        "userId": 8
+    },
+    {
+        "id": 19,
+        "orderStatus": "processing",
+        "totalPrice": 200.00,
+        "addressId": 19,
+        "userId": 9
+    },
+    {
+        "id": 20,
+        "orderStatus": "shipped",
+        "totalPrice": 95.00,
+        "addressId": 20,
+        "userId": 10
+    }
+]

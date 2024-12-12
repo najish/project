@@ -1,0 +1,182 @@
+[
+    {
+      "userId": 1,
+      "landmark": "Near Main Market",
+      "area": "Sector 17",
+      "city": "Chandigarh",
+      "state": "Chandigarh",
+      "country": "India",
+      "pincode": 160017
+    },
+    {
+      "userId": 2,
+      "landmark": "Opposite City Hospital",
+      "area": "MG Road",
+      "city": "Bangalore",
+      "state": "Karnataka",
+      "country": "India",
+      "pincode": 560001
+    },
+    {
+      "userId": 3,
+      "landmark": "Behind Railway Station",
+      "area": "Civil Lines",
+      "city": "Delhi",
+      "state": "Delhi",
+      "country": "India",
+      "pincode": 110006
+    },
+    {
+      "userId": 4,
+      "landmark": "Beside Central Park",
+      "area": "Park Street",
+      "city": "Kolkata",
+      "state": "West Bengal",
+      "country": "India",
+      "pincode": 700016
+    },
+    {
+      "userId": 5,
+      "landmark": "Near University",
+      "area": "University Road",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "country": "India",
+      "pincode": 400007
+    },
+    {
+      "userId": 6,
+      "landmark": "Near Town Hall",
+      "area": "MG Marg",
+      "city": "Shimla",
+      "state": "Himachal Pradesh",
+      "country": "India",
+      "pincode": 171001
+    },
+    {
+      "userId": 7,
+      "landmark": "Near the Lake",
+      "area": "Lake View Road",
+      "city": "Udaipur",
+      "state": "Rajasthan",
+      "country": "India",
+      "pincode": 313001
+    },
+    {
+      "userId": 8,
+      "landmark": "Near the Fort",
+      "area": "Fort Road",
+      "city": "Jodhpur",
+      "state": "Rajasthan",
+      "country": "India",
+      "pincode": 342001
+    },
+    {
+      "userId": 9,
+      "landmark": "Near the Beach",
+      "area": "Beach Road",
+      "city": "Chennai",
+      "state": "Tamil Nadu",
+      "country": "India",
+      "pincode": 600004
+    },
+    {
+      "userId": 10,
+      "landmark": "Near the Temple",
+      "area": "Temple Street",
+      "city": "Varanasi",
+      "state": "Uttar Pradesh",
+      "country": "India",
+      "pincode": 221001
+    },
+    {
+      "userId": 1,
+      "landmark": "New Landmark 1",
+      "area": "New Area 1",
+      "city": "New City 1",
+      "state": "New State 1",
+      "country": "India",
+      "pincode": 123456
+    },
+    {
+      "userId": 2,
+      "landmark": "New Landmark 2",
+      "area": "New Area 2",
+      "city": "New City 2",
+      "state": "New State 2",
+      "country": "India",
+      "pincode": 789012
+    },
+    {
+      "userId": 3,
+      "landmark": "New Landmark 3",
+      "area": "New Area 3",
+      "city": "New City 3",
+      "state": "New State 3",
+      "country": "India",
+      "pincode": 345678
+    },
+    {
+      "userId": 4,
+      "landmark": "New Landmark 4",
+      "area": "New Area 4",
+      "city": "New City 4",
+      "state": "New State 4",
+      "country": "India",
+      "pincode": 901234
+    },
+    {
+      "userId": 5,
+      "landmark": "New Landmark 5",
+      "area": "New Area 5",
+      "city": "New City 5",
+      "state": "New State 5",
+      "country": "India",
+      "pincode": 567890
+    },
+      {
+      "userId": 6,
+      "landmark": "New Landmark 6",
+      "area": "New Area 6",
+      "city": "New City 6",
+      "state": "New State 6",
+      "country": "India",
+      "pincode": 101112
+    },
+    {
+      "userId": 7,
+      "landmark": "New Landmark 7",
+      "area": "New Area 7",
+      "city": "New City 7",
+      "state": "New State 7",
+      "country": "India",
+      "pincode": 131415
+    },
+    {
+      "userId": 8,
+      "landmark": "New Landmark 8",
+      "area": "New Area 8",
+      "city": "New City 8",
+      "state": "New State 8",
+      "country": "India",
+      "pincode": 161718
+    },
+    {
+      "userId": 9,
+      "landmark": "New Landmark 9",
+      "area": "New Area 9",
+      "city": "New City 9",
+      "state": "New State 9",
+      "country": "India",
+      "pincode": 192021
+    },
+    {
+      "userId": 10,
+      "landmark": "New Landmark 10",
+      "area": "New Area 10",
+      "city": "New City 10",
+      "state": "New State 10",
+      "country": "India",
+      "pincode": 222324
+    }
+  ]

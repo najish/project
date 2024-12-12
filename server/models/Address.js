@@ -15,17 +15,34 @@ const Address = sequelize.define('Address', {
       key: "id"
     }
   },
-  orderStatus: {
+  landmark: {
     type: DataTypes.STRING,
-    defaultValue: 'pending',
+    allowNull: true
   },
-  totalPrice: {
-    type: DataTypes.FLOAT,
+  area: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  city: {
+    type: DataTypes.STRING,
     allowNull: false,
   },
+  state: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  country: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    defaultValue: 'India'
+  },
+  pincode: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  }
 }, {
   timestamps: false,
-  tableName: 'Address'
+  tableName: 'address'
 });
 
 

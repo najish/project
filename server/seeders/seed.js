@@ -1,13 +1,16 @@
 const fs = require('fs').promises;
 const path = require('path');
-const { Product, User, Cart, Category } = require('../models/associations');
+const { Product, User, Cart, Category,Address,Order, OrderItem } = require('../models/associations');
 
 const myMap = new Map()
 
-myMap.set(Category, 'categoryData.json')
-myMap.set(Product, 'productData.json')
-myMap.set(User, 'userData.json')
-myMap.set(Cart, 'cartData.json')
+myMap.set(Category, 'CategoryData.json')
+myMap.set(Product, 'ProductData.json')
+myMap.set(User, 'UserData.json')
+myMap.set(Cart, 'CartData.json')
+myMap.set(Address,'AddressData.json')
+myMap.set(Order, 'OrderData.json')
+myMap.set(OrderItem, 'OrderItemData.json')
 
 
 // Utility function to read data from a JSON file
