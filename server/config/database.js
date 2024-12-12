@@ -12,11 +12,7 @@ const config = dbConfig[environment]
 const sequelize = new Sequelize(config.database, config.username, config.password, {
     host: config.host,
     dialect: config.dialect,
-    logging: (msg) => {
-        if(msg.includes('error')) {
-            console.log(msg)
-        }
-    },  // Set to true if you want to see SQL queries in the console
+     // Set to true if you want to see SQL queries in the console
 });
 
 

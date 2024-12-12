@@ -13,7 +13,7 @@ const ShippingAddress = require('./ShippingAddress')
 const asyncHandler = require('../middlewares/asyncHandler')
 const setupAssociations = require('./setupAssociation')
 
-setupAssociations({Category, Product})
+setupAssociations({User, Cart, CartItem, Product, Category, Another, Order, OrderItem, Shifa, ShippingAddress, Address})
 
 
 

@@ -2,6 +2,14 @@ const fs = require('fs').promises;
 const path = require('path');
 const { Product, User, Cart, Category } = require('../models/associations');
 
+const myMap = new Map()
+
+myMap.set(Category, 'categoryData.json')
+myMap.set(Product, 'productData.json')
+myMap.set(User, 'userData.json')
+myMap.set(Cart, 'cartData.json')
+
+
 // Utility function to read data from a JSON file
 const readFileData = async (fileName) => {
   try {
@@ -33,34 +41,28 @@ const seedData = async (model, fileName) => {
   }
 };
 
-// Seed individual model data
-const seedProductData = async () => {
-  await seedData(Product, 'ProductData.json');
-};
 
-const seedUserData = async () => {
-  await seedData(User, 'UserData.json');
-};
-
-const seedCategoryData = async () => {
-  await seedData(Category, 'CategoryData.json');
-};
-
-const seedCartData = async () => {
-  await seedData(Cart, 'CartData.json');
-};
-
-// Seed all models
 const seedAllModel = async () => {
   try {
-    await seedCategoryData();
-    await seedProductData();
-    await seedUserData();
-    await seedCartData();
-    console.log('All data seeded successfully');
+    for (const [model, fileName] of myMap) {
+      await seedData(model, fileName)
+    }
   } catch (err) {
-    console.error('Error seeding data:', err);
+    console.log(err)
   }
-};
+}
+
+// // Seed all models
+// const seedAllModel = async () => {
+//   try {
+//     await seedCategoryData();
+//     await seedProductData();
+//     await seedUserData();
+//     await seedCartData();
+//     console.log('All data seeded successfully');
+//   } catch (err) {
+//     console.error('Error seeding data:', err);
+//   }
+// };
 
 module.exports = { seedAllModel };
