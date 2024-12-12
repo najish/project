@@ -14,6 +14,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware setup
+app.use(morgan('dev'));
 app.use(cors({
 }));
 
@@ -26,7 +27,6 @@ app.use((req, res, next) => {
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(morgan('combined'));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -59,22 +59,31 @@ app.use(globalErrorHandler);
 const startApp = async () => {
     try {
         await authenticate();
-        console.log('Database authenticated'); // Log authentication success
-        await sequelize.sync({ force: true }); // Use force: true cautiously in production
+        console.log('Database authenticated');
+
+        await sequelize.sync({ alter: true }); // Avoid force: true in production
         console.log('Database synced');
+
         await seedAllModel();
         console.log('Database seeded');
 
-        // Start the server AFTER successful database operations
         app.listen(PORT, () => {
             console.log(`Server is running on http://localhost:${PORT}`);
         });
 
+        // Graceful shutdown
+        process.on('SIGINT', async () => {
+            console.log('Shutting down gracefully...');
+            await sequelize.close();
+            process.exit(0);
+        });
+
     } catch (error) {
         console.error('Error during startup:', error);
-        process.exit(1); // Important: Exit the process if startup fails
+        process.exit(1);
     }
 };
+
 
 
 startApp();

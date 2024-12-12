@@ -4,7 +4,7 @@ const redisClient = require('../config/redis');
 const { NotFoundError, BadRequestError } = require('../utils/errors'); // Import custom error classes
 
 // Get all products
-exports.getProducts = asyncHandler(async (req, res) => {
+exports.getProducts = asyncHandler(async (req, res,next) => {
     const cacheKey = 'products';
     const cachedData = await redisClient.get(cacheKey);
 

@@ -8,12 +8,16 @@ const config = dbConfig[environment]
 
 
 
-
 const sequelize = new Sequelize(config.database, config.username, config.password, {
     host: config.host,
     dialect: config.dialect,
-     // Set to true if you want to see SQL queries in the console
+    logging: (msg) => {
+        if (msg.includes('warn') || msg.includes('error')) {
+            console.log(msg); // Log only warnings and errors
+        }
+    },
 });
+
 
 
 const authenticate = async () => {

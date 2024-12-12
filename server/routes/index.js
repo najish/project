@@ -13,8 +13,4 @@ router.use('/products', productRoutes)
 router.use('/categories', categoryRoutes)
 router.use('/auth', authRoutes)
 
-router.use('*',(req,res,next) => {
-    next(new NotFoundError(`Cannot find ${req.method} ${req.originalUrl} on this server!`))
-})
-
 module.exports = router
