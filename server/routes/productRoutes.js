@@ -1,17 +1,22 @@
 const express = require('express')
-const productController = require('../controllers/productController')
 const router = express.Router()
-const upload = require('../config/multerConfig')
 
+
+const {getProduct, getProducts, addProduct, editProduct, deleteProduct,newProduct} = require('../controllers/productController')
+const upload = require('../config/multerConfig')
+const {productValidation, handleValidationErrors} = require('../middlewares/validations/productValidation')
 
 
 router.route('/')
-    .get(productController.getProducts)
-    .post(productController.addProduct)
+    .get(getProducts)
+    .post(productValidation(),handleValidationErrors,upload.single('image'),addProduct)
 
 router.route('/:id')
-    .get(productController.getProduct)
-    .put(productController.editProduct)
-    .delete(productController.deleteProduct)
+    .get(getProduct)
+    .put(editProduct)
+    .delete(deleteProduct)
+
+
+router.get('/new',newProduct)
 
 module.exports = router
