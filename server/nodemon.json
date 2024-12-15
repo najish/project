@@ -1,7 +1,0 @@
-{
-    "watch": [
-        "src"
-    ],
-    "ext": "js,json",
-    "exec": "node --inspect=9229 app.js"
-}

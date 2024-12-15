@@ -55,17 +55,6 @@ const seedAllModel = async () => {
   }
 }
 
-// // Seed all models
-// const seedAllModel = async () => {
-//   try {
-//     await seedCategoryData();
-//     await seedProductData();
-//     await seedUserData();
-//     await seedCartData();
-//     console.log('All data seeded successfully');
-//   } catch (err) {
-//     console.error('Error seeding data:', err);
-//   }
-// };
+
 
 module.exports = { seedAllModel };

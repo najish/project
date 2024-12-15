@@ -14,7 +14,7 @@ const getProduct = asyncHandler(async (req, res, next) => {
 
 const getProducts = asyncHandler(async (req, res, next) => {
     const products = await Product.findAll();
-    res.json(products);
+    return res.json(products);
 });
 
 const addProduct = asyncHandler(async (req, res, next) => {
@@ -42,8 +42,10 @@ const editProduct = asyncHandler(async (req, res, next) => {
     product.name = name;
     product.description = description;
     product.price = price;
+    console.log("hello")
 
     await product.save();
+
 
     res.json(product);
 });
@@ -58,12 +60,11 @@ const deleteProduct = asyncHandler(async (req, res, next) => {
     }
 
     await product.destroy();
-
+    console.log("hello")
     res.json({ message: 'Product deleted successfully' });
 });
 
 const newProduct = asyncHandler(async (req,res,next) => {
-    // throw new Error('this is customer error')
     return res.send("Hello from new product")
 })
 

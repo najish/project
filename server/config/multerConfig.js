@@ -6,9 +6,7 @@ const uploadDir = path.resolve(__dirname, "../uploads/productImages")
 
 if(!fs.existsSync(uploadDir)) {
     fs.mkdirSync(uploadDir, {recursive: true})
-} else {
-    console.log(`folder already exists: ${uploadDir}`)
-}
+} 
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {

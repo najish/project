@@ -5,7 +5,4 @@ const categoryController = require('./categoryController')
 
 
 
-
-
-
 module.exports = {authController, productController, cartController, categoryController}
