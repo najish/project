@@ -7,6 +7,8 @@ const {
   deleteCart,
 } = require('../controllers/cartController');
 
+
+
 // Route to get the user's active cart
 router.get('/:userEmail', getCart);
 

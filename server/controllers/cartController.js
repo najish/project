@@ -23,7 +23,8 @@ const asyncHandler = require('../middlewares/asyncHandler'); // Import the async
 // })
 
 
-const getCart = (req,res) => {
+const getCart = (req,res,next) => {
+  console.log(next)
   return res.send("hello")
 }
 
