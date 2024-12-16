@@ -3,7 +3,8 @@ require('dotenv').config(); // 1. Load environment variables
 const express = require('express');
 const morgan = require('morgan'); // For logging requests
 const helmet = require('helmet'); // For setting security headers
-const cors = require('cors'); // For enabling CORS
+const cors = require('cors');
+const rateLimit = require('express-rate-limit') // For enabling CORS
 const { NotFoundError, DatabaseError } = require('./utils/errors');
 const globalErrorHandler = require('./middlewares/errorMiddleware');
 
@@ -17,16 +18,27 @@ const { seedAllModel } = require('./seeders/seed');
 const asyncHandler = require('./middlewares/asyncHandler');
 
 // Middleware
+
+// const limiter = rateLimit({
+//   windowMs: 15 * 60 * 1000, // 15 minutes
+//   max: 100, // limit each IP to 100 requests per windowMs
+//   message: 'Too many requests from this IP, please try again after 15 minutes',
+// });
+
+
 app.use(express.json()); // Parse incoming JSON requests
 app.use(helmet()); // Security middleware
 app.use(morgan('dev')); // Log HTTP requests
-
+// app.use(limiter)
 // CORS setup: Allow only specific origin (e.g., React app running on localhost:3000)
 // app.use(cors({
 //   origin: 'http://localhost:3000', // Allow only requests from React app
 //   methods: ['GET', 'POST', 'PUT', 'DELETE'],
 //   credentials: true, // Allow cookies or authentication headers
 // }));
+
+
+
 app.use(cors())
 
 // Remove the restrictive Cross-Origin-Resource-Policy header
@@ -63,9 +75,9 @@ app.use(globalErrorHandler);
 const syncDatabase = asyncHandler(async () => {
   await sequelize.authenticate();
   console.log('Database connected 🔗🔗🔗');
-  await sequelize.sync({ alter: true }); // Force sync the database (use carefully)
+  await sequelize.sync({ force: true }); // Force sync the database (use carefully)
   console.log('All models are synched ✅✅✅');
-  await seedAllModel(); // Seed data if necessary
+  await seedAbllModel(); // Seed data if necessary
 });
 
 // Sync database before starting the server

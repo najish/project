@@ -3,7 +3,7 @@ const productRoutes = require('./productRoutes');
 const categoryRoutes = require('./categoryRoutes')
 const userRoutes = require('./userRoutes')
 const cartRoutes = require('./cartRoutes')
-
+const authRoutes = require('./authRoutes')
 
 
 
@@ -15,7 +15,6 @@ router.use('/products', productRoutes);
 router.use('/categories', categoryRoutes)
 router.use('/users', userRoutes)
 router.use('/carts',cartRoutes)
-router.use('/another', (req,res,next) => {
+router.use('/auth', authRoutes)
 
-})
 module.exports = router;

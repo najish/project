@@ -30,6 +30,7 @@ exports.signup = asyncHandler(async (req, res) => {
             username: newUser.username,
             email: newUser.email,
             role: newUser.role,
+            firstname: newUser.firstName
         },
     });
 });

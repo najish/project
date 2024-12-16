@@ -50,7 +50,7 @@ const addCategory = async (req, res) => {
 const editCategory = async (req, res) => {
   try {
     const { id } = req.params;
-    const { name } = req.body;
+    const { categoryName, description } = req.body;
 
     const category = await Category.findByPk(id);
 
@@ -58,13 +58,13 @@ const editCategory = async (req, res) => {
       return res.status(404).json({ error: 'Category not found' });
     }
 
-    if (!name) {
+    if (!categoryName) {
       return res.status(400).json({ error: 'Name is required' });
     }
 
-    category.name = name;
-    await category.save();
-
+    category.categoryName= categoryName
+    category.description = description
+    await category.save()
     return res.json(category);
   } catch (err) {
     console.error(err);
