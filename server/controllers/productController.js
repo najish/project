@@ -1,6 +1,6 @@
 const asyncHandler = require('../middlewares/asyncHandler');
 const { Product } = require('../models/associations');
-
+const redisClient = require('../config/redis')
 const getProduct = asyncHandler(async (req, res, next) => {
     const { id } = req.params;
     const product = await Product.findByPk(id);
@@ -13,8 +13,17 @@ const getProduct = asyncHandler(async (req, res, next) => {
 });
 
 const getProducts = asyncHandler(async (req, res, next) => {
-    const products = await Product.findAll();
-    return res.json(products);
+    const cacheKey = 'products'
+    const cachedData = await redisClient.get(cacheKey)
+
+    if(cachedData) {
+        return res.status(200).json(JSON.parse(cachedData))
+    }
+    else {
+        const products = await Product.findAll();
+        await redisClient.setEx(cacheKey,10 ,JSON.stringify(products))
+        return res.status(200).json(products);
+    }
 });
 
 const addProduct = asyncHandler(async (req, res, next) => {

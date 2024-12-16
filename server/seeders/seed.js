@@ -19,7 +19,7 @@ const readFileData = async (fileName) => {
     const filePath = path.join(__dirname, 'Data', fileName);
     const data = await fs.readFile(filePath, 'utf8');
     return JSON.parse(data);
-  } catch (err) {
+  } catch (err) {ww
     throw err;
   }
 };

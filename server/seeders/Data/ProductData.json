@@ -5,7 +5,7 @@
         "description": "High-quality wireless earbuds with noise cancellation.",
         "price": 49.99,
         "stockQuantity": 120,
-        "imageUrl": "/images/products/wireless_earbuds.jpeg",
+        "imageUrl": "images/products/wireless_earbuds.jpeg",
         "categoryId": 1
     },
     {
@@ -14,7 +14,7 @@
         "description": "Ergonomic gaming mouse with customizable RGB lighting.",
         "price": 29.99,
         "stockQuantity": 80,
-        "imageUrl": "/images/products/gaming_mouse.jpeg",
+        "imageUrl": "images/products/gaming_mouse.jpeg",
         "categoryId": 2
     },
     {
@@ -23,7 +23,7 @@
         "description": "27-inch 4K UHD monitor with HDR support.",
         "price": 399.99,
         "stockQuantity": 50,
-        "imageUrl": "/images/products/4k_monitor.jpeg",
+        "imageUrl": "images/products/4k_monitor.jpeg",
         "categoryId": 3
     },
     {
@@ -32,7 +32,7 @@
         "description": "Waterproof smartwatch with heart rate monitoring.",
         "price": 199.99,
         "stockQuantity": 70,
-        "imageUrl": "/images/products/smart_watch.jpeg",
+        "imageUrl": "images/products/smart_watch.jpeg",
         "categoryId": 4
     },
     {
@@ -41,7 +41,7 @@
         "description": "Portable Bluetooth speaker with 10-hour battery life.",
         "price": 59.99,
         "stockQuantity": 150,
-        "imageUrl": "/images/products/bluetooth_speaker.jpeg",
+        "imageUrl": "images/products/bluetooth_speaker.jpeg",
         "categoryId": 5
     },
     {
@@ -50,7 +50,7 @@
         "description": "Compact mechanical keyboard with red switches.",
         "price": 89.99,
         "stockQuantity": 60,
-        "imageUrl": "/images/products/mechanical_keyboard.jpeg",
+        "imageUrl": "images/products/mechanical_keyboard.jpeg",
         "categoryId": 6
     },
     {
@@ -59,7 +59,7 @@
         "description": "Slim fitness tracker with step counter and sleep monitor.",
         "price": 49.99,
         "stockQuantity": 90,
-        "imageUrl": "/images/products/fitness_tracker.jpeg",
+        "imageUrl": "images/products/fitness_tracker.jpeg",
         "categoryId": 7
     },
     {
@@ -68,7 +68,7 @@
         "description": "Adjustable aluminum laptop stand for improved ergonomics.",
         "price": 29.99,
         "stockQuantity": 200,
-        "imageUrl": "/images/products/laptop_stand.jpeg",
+        "imageUrl": "images/products/laptop_stand.jpeg",
         "categoryId": 8
     },
     {
@@ -77,7 +77,7 @@
         "description": "Multi-port USB-C hub with HDMI, USB, and SD card slots.",
         "price": 39.99,
         "stockQuantity": 100,
-        "imageUrl": "/images/products/usb_c_hub.jpeg",
+        "imageUrl": "images/products/usb_c_hub.jpeg",
         "categoryId": 9
     },
     {
@@ -86,7 +86,7 @@
         "description": "Over-ear headphones with active noise cancellation.",
         "price": 149.99,
         "stockQuantity": 40,
-        "imageUrl": "/images/products/noise_cancelling_headphones.jpeg",
+        "imageUrl": "images/products/noise_cancelling_headphones.jpeg",
         "categoryId": 10
     }
 ]

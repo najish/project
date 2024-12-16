@@ -11,7 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Importing routes
-const apiRoutes = require('./routes')
+const apiRoutes = require('./routes');
 const { sequelize } = require('./models/associations');
 const { seedAllModel } = require('./seeders/seed');
 const asyncHandler = require('./middlewares/asyncHandler');
@@ -19,18 +19,31 @@ const asyncHandler = require('./middlewares/asyncHandler');
 // Middleware
 app.use(express.json()); // Parse incoming JSON requests
 app.use(helmet()); // Security middleware
-app.use(cors()); // Enable CORS
 app.use(morgan('dev')); // Log HTTP requests
 
-// // Routes
-// app.use('/products', productRoutes);
-// app.use('/users', userRoutes);
+// CORS setup: Allow only specific origin (e.g., React app running on localhost:3000)
+// app.use(cors({
+//   origin: 'http://localhost:3000', // Allow only requests from React app
+//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//   credentials: true, // Allow cookies or authentication headers
+// }));
+app.use(cors())
 
-app.use('/api',apiRoutes)
+// Remove the restrictive Cross-Origin-Resource-Policy header
+// This will allow cross-origin access to resources
+app.use((req, res, next) => {
+  res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin'); // Allow cross-origin resource sharing
+  next();
+});
+
+app.use(express.static('public')) // Serve static files from the 'public' directory
+
+// Routes
+app.use('/api', apiRoutes);
 
 // Test route
 app.get('/', (req, res, next) => {
-    return res.send("Hello, world!");
+  return res.send("Hello, world!");
 });
 
 // Example route to trigger an error
@@ -40,7 +53,6 @@ app.get('/error', (req, res, next) => {
 
 // Catch-all 404 for undefined routes
 app.all('*', (req, res, next) => {
-  console.log('hello ');
   next(new NotFoundError(`Cannot find ${req.originalUrl} on this server!`));
 });
 
@@ -51,7 +63,8 @@ app.use(globalErrorHandler);
 const syncDatabase = asyncHandler(async () => {
   await sequelize.authenticate();
   console.log('Database connected 🔗🔗🔗');
-  await sequelize.sync({force: true})
+  await sequelize.sync({ force: true }); // Force sync the database (use carefully)
+  console.log('All models are synched ✅✅✅');
   await seedAllModel(); // Seed data if necessary
 });
 
