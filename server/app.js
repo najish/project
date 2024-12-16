@@ -36,8 +36,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.static('public')) // Serve static files from the 'public' directory
-
+app.use(express.static('public'))
+app.use('/uploads', express.static('uploads'));
 // Routes
 app.use('/api', apiRoutes);
 
@@ -63,7 +63,7 @@ app.use(globalErrorHandler);
 const syncDatabase = asyncHandler(async () => {
   await sequelize.authenticate();
   console.log('Database connected 🔗🔗🔗');
-  await sequelize.sync({ force: true }); // Force sync the database (use carefully)
+  await sequelize.sync({ alter: true }); // Force sync the database (use carefully)
   console.log('All models are synched ✅✅✅');
   await seedAllModel(); // Seed data if necessary
 });

@@ -27,16 +27,26 @@ const getProducts = asyncHandler(async (req, res, next) => {
 });
 
 const addProduct = asyncHandler(async (req, res, next) => {
-    const { name, description, price } = req.body;
-
-    const newProduct = await Product.create({
-        name,
-        description,
-        price
+    const { name, description, price, stockQuantity, categoryId } = req.body;
+    const imagePath = req.file ? `uploads/productImages/${req.file.filename}` : null;
+  
+    console.log({ name, description, price, stockQuantity, categoryId, imagePath });
+  
+    const product = await Product.create({
+      name,
+      description,
+      price,
+      stockQuantity,
+      imageUrl: imagePath,
+      categoryId,
     });
-
-    res.status(201).json(newProduct);
-});
+    console.log('product is added ✅✅✅')
+  
+    res.status(201).json({
+      success: true,
+      data: product,
+    });
+  });
 
 const editProduct = asyncHandler(async (req, res, next) => {
     const { id } = req.params;

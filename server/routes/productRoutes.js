@@ -9,7 +9,7 @@ const {productValidation, handleValidationErrors} = require('../middlewares/vali
 
 router.route('/')
     .get(productController.getProducts)
-    .post(productValidation(),handleValidationErrors,upload.single('image'),productController.addProduct)
+    .post(upload.single('image'),productController.addProduct)
 
 router.route('/:id')
     .get(productController.getProduct)
