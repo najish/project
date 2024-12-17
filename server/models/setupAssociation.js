@@ -5,6 +5,7 @@ const setupAssociations = ({ Category, Product, User, Address}) => {
     User.hasMany(Address, {foreignKey: "userId"})
     Address.belongsTo(User, {foreignKey: "userId"})
 
+
 }
 
 
