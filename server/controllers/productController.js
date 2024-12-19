@@ -88,6 +88,7 @@ const newProduct = asyncHandler(async (req,res,next) => {
 })
 
 
+<<<<<<< HEAD
 const getProductPagination = asyncHandler(async (req,res,next) => {
     const currentPage = (req.params.currentPage - 1)
     const offset = currentPage * 5
@@ -101,3 +102,14 @@ const getProductPagination = asyncHandler(async (req,res,next) => {
 
 
 module.exports = { getProduct, getProducts, addProduct, editProduct, deleteProduct,newProduct, getProductPagination };
+=======
+const getProductsPagination = asyncHandler(async (req,res,next) => {
+    const currentPage = req.params.currentPage
+    const offset = (currentPage - 1) * 5
+    const products = await Product.findAll({raw: true, offset, limit: 5})
+
+    return res.status(200).json(products)
+})
+
+module.exports = { getProduct, getProducts, addProduct, editProduct, deleteProduct,newProduct, getProductsPagination };
+>>>>>>> dev

@@ -22,4 +22,8 @@ router.route('/pagination/:currentPage')
 
 router.get('/new',productController.newProduct)
 
+
+router.route('/pagination/:currentPage')
+    .get(productController.getProductsPagination)
+
 module.exports = router
