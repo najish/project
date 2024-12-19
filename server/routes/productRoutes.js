@@ -17,6 +17,9 @@ router.route('/:id')
     .delete(productController.deleteProduct)
 
 
+router.route('/pagination/:currentPage')
+    .get(productController.getProductPagination)
+
 router.get('/new',productController.newProduct)
 
 module.exports = router

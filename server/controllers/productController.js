@@ -1,5 +1,5 @@
 const asyncHandler = require('../middlewares/asyncHandler');
-const { Product } = require('../models/associations');
+const { Product, sequelize } = require('../models/associations');
 const redisClient = require('../config/redis')
 const getProduct = asyncHandler(async (req, res, next) => {
     const { id } = req.params;
@@ -87,4 +87,17 @@ const newProduct = asyncHandler(async (req,res,next) => {
     return res.send("Hello from new product")
 })
 
-module.exports = { getProduct, getProducts, addProduct, editProduct, deleteProduct,newProduct };
+
+const getProductPagination = asyncHandler(async (req,res,next) => {
+    const currentPage = (req.params.currentPage - 1)
+    const offset = currentPage * 5
+    const products = await Product.findAll({
+        offset,
+        limit: 5,
+        raw: true
+    })
+    return res.status(200).json(products)
+})
+
+
+module.exports = { getProduct, getProducts, addProduct, editProduct, deleteProduct,newProduct, getProductPagination };
