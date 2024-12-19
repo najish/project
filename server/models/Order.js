@@ -28,8 +28,9 @@ const Order = sequelize.define('Order', {
     allowNull: false,
     references: {
       model: "users",
-      key: "id"
-    }
+      key: "id",
+    },
+    onDelete: 'CASCADE'
   }
 }, {
   timestamps: false,

@@ -80,7 +80,8 @@ const deleteAddress = asyncHandler(async (req, res, next) => {
 const getUserAddress = asyncHandler(async (req, res, next) => {
     const id = req.params.id
     const user = await User.findByPk(id, {
-        include: Address
+        include: Address,
+        // raw: true
     })
     if(!user) {
         return res.status(404).json({
