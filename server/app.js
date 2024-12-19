@@ -77,7 +77,7 @@ const syncDatabase = asyncHandler(async () => {
   console.log('Database connected 🔗🔗🔗');
   await sequelize.sync({ force: true }); // Force sync the database (use carefully)
   console.log('All models are synched ✅✅✅');
-  await seedAbllModel(); // Seed data if necessary
+  await seedAllModel(); // Seed data if necessary
 });
 
 // Sync database before starting the server

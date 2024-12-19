@@ -1,0 +1,34 @@
+/* src/pages/user/UserDashboard.css */
+.user-dashboard {
+    text-align: center;
+}
+
+/* Media Queries for UserDashboard */
+
+/* Desktop and Larger Screens (1281px and up) */
+@media (min-width: 1281px) {
+    .user-dashboard {
+        font-size: 18px;
+    }
+}
+
+/* Laptops and Desktops (1025px to 1280px) */
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .user-dashboard {
+        font-size: 16px;
+    }
+}
+
+/* Tablets (Portrait 768px to 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .user-dashboard {
+        font-size: 15px;
+    }
+}
+
+/* Smartphones (Portrait 320px to 480px) */
+@media (min-width: 320px) and (max-width: 480px) {
+    .user-dashboard {
+        font-size: 14px;
+    }
+}

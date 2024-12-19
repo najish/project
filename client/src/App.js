@@ -1,58 +1,40 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header/Header';
-import Main from './components/Main/Main';
-import Footer from './components/Footer/Footer';
-import { GoogleOAuthProvider } from '@react-oauth/google';
-import { UserProvider } from './context/UserContext';
-import AppProvider from './context/AppContext';
-import appRoutes from '../src/routes/routes'; // Ensure correct path to routes
-import RoleBasedLayout from './components/RoleBasedLayout';
-import AdminLayout from './components/layout/AdminLayout';
-import UserLayout from './components/layout/UserLayout';
-
-
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import UserLayout from "./layouts/UserLayout";
+import AdminLayout from "./layouts/AdminLayout";
+import UserDashboard from "./pages/user/UserDashboard";
+import UserProfile from "./pages/user/UserProfile";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import ManageUsers from "./pages/admin/ManageUsers";
+import Products from "./pages/user/Products";
 const App = () => {
-  const [cart, setCart] = useState([]);
-
-  const googleClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
-
-  if (!googleClientId) {
-    console.error("Google Client ID is not defined in the environment variables.");
-    return <div>Error: Google Client ID is not set.</div>; // Show error if client ID is not provided
-  }
-
-  if (!Array.isArray(appRoutes)) {
-    console.error("appRoutes is not a valid array.");
-    return <div>Error: appRoutes is invalid.</div>; // Handle invalid appRoutes
-  }
-
   return (
-    <GoogleOAuthProvider clientId={googleClientId}>
-      <Router>
-        <AppProvider>
-          <UserProvider>
+    <Router>
+      <Routes>
+        {/* Default route for users */}
+        <Route path="/" element={<Navigate to="/user/products" replace />} />
 
-            {/* <Header />
-            <Main cart={cart} setCart={setCart} />
-            <Footer /> */}
+        {/* User routes */}
+        <Route path="/user" element={<UserLayout />}>
+          <Route path="products" element={<Products />} />
+          <Route path="dashboard" element={<UserDashboard />} />
+          <Route path="profile" element={<UserProfile />} />
+        </Route>
 
+        {/* Admin routes (explicit) */}
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="users" element={<ManageUsers />} />
+        </Route>
 
-            <Routes>
-              {/* Shared Role based layout */}
-              <Route path='/' element={<RoleBasedLayout />} />
-
-              {/* Admin Routes */}
-              <Route path='/admin/dashboard' element={<AdminLayout />} />
-
-              {/* User Routes */}
-              <Route path='home' element={<UserLayout />} />
-            </Routes>
-          </UserProvider>
-        </AppProvider>
-      </Router>
-    </GoogleOAuthProvider>
+        {/* Catch-all route */}
+        <Route path="*" element={<Navigate to="/user/dashboard" replace />} />
+      </Routes>
+    </Router>
   );
 };
 
 export default App;
+
+
+

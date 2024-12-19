@@ -1,0 +1,126 @@
+/* src/components/Product.css */
+
+/* Styling for each individual product item */
+.product-item {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for product item */
+.product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Image styling */
+.product-item img {
+    max-width: 100%;
+    border-radius: 8px;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* On hover, slightly zoom the image */
+.product-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Title styling */
+.product-item h3 {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Description styling */
+.product-item p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 8px;
+}
+
+/* Price styling */
+.product-item .price {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #333;
+    margin-top: 15px;
+}
+
+
+
+.product-buttons {
+    margin: 5px;
+}
+
+.product-buttons > button {
+    margin: 2px;
+    padding: 5px;
+}
+/* Media queries for responsiveness */
+
+/* Tablets and below (1024px and smaller) */
+@media (max-width: 1024px) {
+    .product-item {
+        padding: 15px;
+    }
+
+    .product-item h3 {
+        font-size: 1.1rem;
+    }
+
+    .product-item p {
+        font-size: 0.85rem;
+    }
+
+    .product-item .price {
+        font-size: 1rem;
+    }
+}
+
+/* Small tablets, large phones (768px) */
+@media (max-width: 768px) {
+    .product-item {
+        padding: 12px;
+    }
+
+    .product-item h3 {
+        font-size: 1rem;
+    }
+
+    .product-item p {
+        font-size: 0.8rem;
+    }
+
+    .product-item .price {
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile phones (below 767px) */
+@media (max-width: 767px) {
+    .product-item {
+        padding: 10px;
+    }
+
+    .product-item h3 {
+        font-size: 1rem;
+    }
+
+    .product-item p {
+        font-size: 0.75rem;
+    }
+
+    .product-item .price {
+        font-size: 0.85rem;
+    }
+}

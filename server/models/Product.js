@@ -34,7 +34,8 @@ const Product = sequelize.define('Product', {
         references: {
             model: "categories",
             key: "id"
-        }
+        },
+        onDelete: "CASCADE"
     }
 }, {
     tableName: 'products',

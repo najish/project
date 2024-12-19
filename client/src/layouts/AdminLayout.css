@@ -1,0 +1,56 @@
+/* src/layouts/AdminLayout.css */
+.admin-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .admin-main {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  /* Media Queries for AdminLayout */
+  
+  /* Desktop and Larger Screens (1281px and up) */
+  @media (min-width: 1281px) {
+    .admin-main {
+      padding: 30px;
+    }
+  }
+  
+  /* Laptops and Desktops (1025px to 1280px) */
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    .admin-main {
+      padding: 25px;
+    }
+  }
+  
+  /* Tablets (Portrait 768px to 1024px) */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .admin-main {
+      padding: 20px;
+    }
+  }
+  
+  /* Tablets (Landscape 768px to 1024px) */
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .admin-main {
+      padding: 20px;
+    }
+  }
+  
+  /* Low-Resolution Tablets and Mobile Landscape (481px to 767px) */
+  @media (min-width: 481px) and (max-width: 767px) {
+    .admin-main {
+      padding: 15px;
+    }
+  }
+  
+  /* Smartphones (Portrait 320px to 480px) */
+  @media (min-width: 320px) and (max-width: 480px) {
+    .admin-main {
+      padding: 10px;
+    }
+  }
+  

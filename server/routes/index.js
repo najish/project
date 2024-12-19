@@ -4,7 +4,7 @@ const categoryRoutes = require('./categoryRoutes')
 const userRoutes = require('./userRoutes')
 const cartRoutes = require('./cartRoutes')
 const authRoutes = require('./authRoutes')
-
+const addressRoutes = require('./addressRoutes')
 
 
 
@@ -16,5 +16,6 @@ router.use('/categories', categoryRoutes)
 router.use('/users', userRoutes)
 router.use('/carts',cartRoutes)
 router.use('/auth', authRoutes)
+router.use('/address',addressRoutes)
 
 module.exports = router;

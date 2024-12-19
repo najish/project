@@ -68,6 +68,7 @@ exports.login = asyncHandler(async (req, res) => {
             username: user.username,
             email: user.email,
             role: user.role,
+            firstName: user.firstName
         },
         token,
     });

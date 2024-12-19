@@ -13,7 +13,7 @@ const getUser = asyncHandler(async (req, res) => {
 // Get all users
 const getUsers = asyncHandler(async (req, res) => {
   const users = await User.findAll();
-  res.status(200).json(users);
+  res.status(201).json(users);
 });
 
 // Create a new user
@@ -24,29 +24,38 @@ const addUser = asyncHandler(async (req, res) => {
 
 // Update a user
 const editUser = asyncHandler(async (req, res) => {
-  const [numAffectedRows, updatedUsers] = await User.update(req.body, {
-    where: { id: req.params.id },
-    returning: true, // Ensure your DB supports this
-  });
-  if (numAffectedRows === 0) {
-    return res.status(404).json({ error: 'User not found' });
+  const id = req.params.id
+  const data = req.body
+  const user = await User.findByPk(id)
+  if(!user) {
+    return res.status(404).json('User not found')
   }
-  res.status(200).json(updatedUsers[0]); // Return the updated user
+
+  await user.update(data)
+  await user.save()
+  return res.status(201).json({
+    message: "hello", id, user
+  })
 });
 
 // Delete a user
 const deleteUser = asyncHandler(async (req, res) => {
-  const numDeletedRows = await User.destroy({
-    where: { id: req.params.id },
-  });
-  if (numDeletedRows === 0) {
-    return res.status(404).json({ error: 'User not found' });
+  const id = req.params.id
+  console.log(id)
+  const user = await User.findByPk(id)
+  if (!user) {
+    return res.status(404).json({
+      message: "User not found to be deleted"
+    })
   }
-  res.status(204).send(); // 204 should not have a response body
+  await user.destroy()
+  return res.status(200).json({
+    user
+  })
 });
 
 // Random User Endpoint
-const randomUser = asyncHandler(async (req, res,next) => {
+const randomUser = asyncHandler(async (req, res, next) => {
   const users = await User.findAll(); // Ensure the User model is defined
   res.status(200).json({
     message: "Data from random",
