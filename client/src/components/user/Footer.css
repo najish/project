@@ -1,0 +1,57 @@
+/* src/components/Footer.css */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer p {
+    margin: 0;
+}
+
+/* Media Queries for Footer */
+
+/* Desktop and Larger Screens (1281px and up) */
+@media (min-width: 1281px) {
+    .footer {
+        padding: 25px;
+    }
+}
+
+/* Laptops and Desktops (1025px to 1280px) */
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .footer {
+        padding: 20px;
+    }
+}
+
+/* Tablets (Portrait 768px to 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .footer {
+        padding: 15px;
+    }
+}
+
+/* Tablets (Landscape 768px to 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .footer {
+        padding: 15px;
+    }
+}
+
+/* Low-Resolution Tablets and Mobile Landscape (481px to 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+    .footer {
+        padding: 10px;
+    }
+}
+
+/* Smartphones (Portrait 320px to 480px) */
+@media (min-width: 320px) and (max-width: 480px) {
+    .footer {
+        padding: 8px;
+    }
+}

@@ -1,5 +1,84 @@
+/* src/index.css */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
+}
+
+/* src/styles/colors.css */
+
+/* Primary Colors */
+:root {
+  --primary-bg: #333; /* Dark Background */
+  --primary-text: #fff; /* White Text */
+  --primary-accent: #4CAF50; /* Green Accent */
+  --secondary-bg: #f4f4f4; /* Light Background */
+  --secondary-text: #555; /* Darker Text */
+}
+/* Base overlay styles */
+
+.overlays {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+}
+
+body {
+  background-color: #f4f4f4;
+  font-family: 'Courier New', Courier, monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Device: Desktops (1281px and higher) */
+@media (min-width: 1281px) {
+  /* Desktop styles go here */
+  body {
+    font-size: 16px;
+  }
+}
+
+/* Device: Laptops, Desktops (1025px to 1280px) */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  /* Laptops/Desktops styles go here */
+  body {
+    font-size: 14px;
+  }
+}
+
+/* Device: Tablets, iPads (portrait 768px to 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Tablet styles go here */
+  body {
+    font-size: 13px;
+  }
+}
+
+/* Device: Tablets, iPads (landscape) */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  /* Tablet Landscape styles go here */
+  body {
+    font-size: 13px;
+  }
+}
+
+/* Device: Low Resolution Tablets, Mobiles (Landscape 481px to 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+  /* Mobile Landscape styles go here */
+  body {
+    font-size: 12px;
+  }
+}
+
+/* Device: Smartphones (Portrait 320px to 480px) */
+@media (min-width: 320px) and (max-width: 480px) {
+  /* Mobile Portrait styles go here */
+  body {
+    font-size: 11px;
+  }
 }

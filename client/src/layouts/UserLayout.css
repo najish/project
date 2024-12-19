@@ -1,0 +1,57 @@
+/* src/layouts/UserLayout.css */
+.user-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .user-main {
+    flex: 1;
+    padding: 20px;
+    /* border: 2px solid #07efe0d0; */
+  }
+  
+  /* Media Queries for UserLayout */
+  
+  /* Desktop and Larger Screens (1281px and up) */
+  @media (min-width: 1281px) {
+    .user-main {
+      padding: 30px;
+    }
+  }
+  
+  /* Laptops and Desktops (1025px to 1280px) */
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    .user-main {
+      padding: 25px;
+    }
+  }
+  
+  /* Tablets (Portrait 768px to 1024px) */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .user-main {
+      padding: 20px;
+    }
+  }
+  
+  /* Tablets (Landscape 768px to 1024px) */
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .user-main {
+      padding: 20px;
+    }
+  }
+  
+  /* Low-Resolution Tablets and Mobile Landscape (481px to 767px) */
+  @media (min-width: 481px) and (max-width: 767px) {
+    .user-main {
+      padding: 15px;
+    }
+  }
+  
+  /* Smartphones (Portrait 320px to 480px) */
+  @media (min-width: 320px) and (max-width: 480px) {
+    .user-main {
+      padding: 10px;
+    }
+  }
+  

@@ -1,0 +1,114 @@
+/* src/pages/products/Products.css */
+
+.products-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+}
+
+.currentPage {
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+
+.loading-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.spinner {
+    font-size: 2rem;
+    animation: spin 1s infinite linear;
+}
+
+/* Add a keyframe animation for spinning */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Grid layout for displaying products */
+.products-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Default to 4 columns for larger screens */
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.product-item {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-item img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.product-item h3 {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+.product-item p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.product-item .price {
+    font-weight: bold;
+    color: #333;
+}
+
+
+.products-pagination {
+    height: 50px;
+    width: 20%;
+    margin:0 auto;
+    margin-top: 5px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.products-pagination > * {
+    margin: 0 10px;
+}
+
+.products-pagination > button {
+    padding: 10px;
+    border: none;
+}
+/* Media queries for responsiveness */
+
+/* Tablets and below (1024px and smaller) */
+@media (max-width: 1024px) {
+    .products-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Small tablets, large phones (768px) */
+@media (max-width: 768px) {
+    .products-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile phones (below 767px) */
+@media (max-width: 767px) {
+    .products-list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
