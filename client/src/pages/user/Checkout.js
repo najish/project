@@ -4,6 +4,7 @@ import axios from "axios";
 import { FaSpinner, FaCashRegister } from "react-icons/fa";
 import { AiOutlineCreditCard } from "react-icons/ai";
 import { IoQrCodeOutline } from "react-icons/io5";
+import {useNavigate} from 'react-router-dom'
 import "./Checkout.css";
 
 const Checkout = () => {
@@ -15,6 +16,7 @@ const Checkout = () => {
     const [orderConfirmed, setOrderConfirmed] = useState(false);
     const [error, setError] = useState(null); // To display errors
     const {cart} = useContext(UserContext)
+    const navigate = useNavigate()
 
     useEffect(() => {
         const fetchAddresses = async () => {
@@ -48,8 +50,10 @@ const Checkout = () => {
                 userId: user.id,
                 addressId: selectedAddress,
                 paymentMethod: paymentMethod,
+                cart
             };
-            await axios.post("http://localhost:5000/api/confirm-order", orderDetails);
+            console.log(orderDetails)
+            await axios.post("http://localhost:5000/api/order/place", orderDetails);
             setOrderConfirmed(true);
         } catch (err) {
             console.error("Error confirming order:", err);
@@ -63,6 +67,7 @@ const Checkout = () => {
         setOrderConfirmed(false);
         setSelectedAddress(null);
         setPaymentMethod("");
+        navigate('/')
     };
 
     return (

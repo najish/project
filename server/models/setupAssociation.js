@@ -1,17 +1,27 @@
+const setupAssociations = ({ Category, Product, User, Address, Order, OrderItem }) => {
+    // Category and Product associations
+    Category.hasMany(Product, { foreignKey: "categoryId", as: "products", onDelete: "CASCADE" });
+    Product.belongsTo(Category, { foreignKey: "categoryId", as: "category", onDelete: "CASCADE" });
 
-const setupAssociations = ({ Category, Product, User, Address, Order, OrderItem}) => {
-    Category.hasMany(Product, { foreignKey: "categoryId", as: "products" })
-    Product.belongsTo(Category, { foreignKey: "categoryId", as: "categories" })
+    // User and Address associations
+    User.hasMany(Address, { foreignKey: "userId", onDelete: "CASCADE" });
+    Address.belongsTo(User, { foreignKey: "userId", onDelete: "CASCADE" });
 
-    User.hasMany(Address, {foreignKey: "userId", onDelete: "CASCADE"})
-    Address.belongsTo(User, {foreignKey: "userId"})
+    // User and Order associations
+    User.hasMany(Order, { foreignKey: "userId", onDelete: "CASCADE" });
+    Order.belongsTo(User, { foreignKey: "userId", onDelete: "CASCADE" });
 
+    // Address and Order associations
+    Address.hasMany(Order, { foreignKey: "addressId", onDelete: "CASCADE" });
+    Order.belongsTo(Address, { foreignKey: "addressId", onDelete: "CASCADE" });
 
+    // Order and OrderItem associations
+    Order.hasMany(OrderItem, { foreignKey: "orderId", onDelete: "CASCADE" });
+    OrderItem.belongsTo(Order, { foreignKey: "orderId", onDelete: "CASCADE" });
 
-    OrderItem.hasMany(Order, {foreignKey: "orderId", onDelete: 'CASCADE'})
-    Order.belongsTo(OrderItem, {foreignKey: "orderId"})
+    // Product and OrderItem associations
+    Product.hasMany(OrderItem, { foreignKey: "productId", onDelete: "CASCADE" });
+    OrderItem.belongsTo(Product, { foreignKey: "productId", onDelete: "CASCADE" });
+};
 
-
-
-}
-module.exports = setupAssociations
+module.exports = setupAssociations;

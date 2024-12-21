@@ -138,5 +138,19 @@
         "totalPrice": 95.00,
         "addressId": 20,
         "userId": 10
+    },
+    {
+        "id": 21,
+        "orderStatus": "delivered",
+        "totalPrice": 499.99,
+        "addressId": 21,
+        "userId": 11
+    },
+    {
+        "id": 22,
+        "orderStatus": "processing",
+        "totalPrice": 299.99,
+        "addressId": 22,
+        "userId": 12
     }
 ]

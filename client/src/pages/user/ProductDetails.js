@@ -53,7 +53,7 @@ const ProductDetails = () => {
                 <h2>{product.name}</h2>
                 <p>{product.description}</p>
                 <p>Price: ${product.price}</p>
-                <p>Stock Quantity: {product.stockQuantity}</p>
+                <p>Stock: <span className='product-details-stock'>{product.stockQuantity > 0 ? "Available" : "Not Available" } </span></p>
                 <div>
                     <button onClick={handleCancel}>Checkout</button>
                     <button onClick={handleCancel}>Cancel</button>

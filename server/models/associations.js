@@ -10,9 +10,5 @@ const Product = require('./Product')
 const asyncHandler = require('../middlewares/asyncHandler')
 const setupAssociations = require('./setupAssociation')
 
-
-
 setupAssociations({User, Cart, CartItem, Product, Category, Order, OrderItem, Address})
-
-
 module.exports = {sequelize, User, Cart, CartItem, Product, Category, Order, OrderItem, Address}

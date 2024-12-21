@@ -19,7 +19,7 @@ const getUsers = asyncHandler(async (req, res) => {
 // Create a new user
 const addUser = asyncHandler(async (req, res) => {
   const user = await User.create(req.body);
-  res.status(201).json(user);
+  return res.status(201).json(user);
 });
 
 // Update a user

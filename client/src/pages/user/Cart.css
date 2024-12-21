@@ -74,7 +74,7 @@
     max-width: 150px; /* Maintain responsive image size */
     height: auto;
     border-radius: 8px;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 /* Product Details */
@@ -97,6 +97,21 @@
     font-size: 1rem;
     color: #555;
     margin: 0;
+}
+
+.product-details > div > p {
+    font-weight: bold;
+}
+.product-details > div > p > span { 
+    margin: 5px;
+}
+
+.cart-quantity-button > button {
+    padding: 10px;
+    color: black;
+    font-weight: bolder;
+    background: none;
+    /* border: none; */
 }
 
 /* Cart Action Buttons */

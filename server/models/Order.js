@@ -31,7 +31,7 @@ const Order = sequelize.define('Order', {
       key: "id",
     },
     onDelete: 'CASCADE'
-  }
+  },
 }, {
   timestamps: false,
   tableName: 'orders'

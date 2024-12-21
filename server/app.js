@@ -7,6 +7,7 @@ const cors = require('cors');
 const rateLimit = require('express-rate-limit') // For enabling CORS
 const { NotFoundError, DatabaseError } = require('./utils/errors');
 const globalErrorHandler = require('./middlewares/errorMiddleware');
+const resetDatabase = require('./models/resetDatabase')
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -75,6 +76,7 @@ app.use(globalErrorHandler);
 const syncDatabase = asyncHandler(async () => {
   await sequelize.authenticate();
   console.log('Database connected 🔗🔗🔗');
+  // await resetDatabase()
   // await sequelize.sync({ force: true }); // Force sync the database (use carefully)
   // console.log('All models are synched ✅✅✅');
   await seedAllModel(); // Seed data if necessary

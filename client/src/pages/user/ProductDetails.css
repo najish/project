@@ -23,6 +23,10 @@
     text-align: center;
     padding: 20px;
 }
+.product-details-stock {
+    color: green;
+    font-weight: bolder;
+}
 
 .product-details h2 {
     margin: 10px 0;

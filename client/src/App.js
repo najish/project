@@ -12,6 +12,7 @@ import { UserProvider } from './contexts/UserContext'
 import ProductDetails from "./pages/user/ProductDetails";
 import Cart from './pages/user/Cart'
 import Checkout from "./pages/user/Checkout";
+import 'bootstrap/dist/css/bootstrap.min.css';
 const App = () => {
   return (
     <Router>
