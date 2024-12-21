@@ -61,6 +61,10 @@ const Login = ({closeForm}) => {
 
             <button type="submit" className="submit-btn">Log In</button>
           </form>
+          <div className='login-auth'>
+            <button>Google</button>
+            <button>Facebook</button>
+          </div>
         </>
       )}
     </div>

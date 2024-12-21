@@ -1,5 +1,6 @@
 const asyncHandler = require('../middlewares/asyncHandler');
 const { Product, sequelize } = require('../models/associations');
+const {Op} = require('sequelize')
 const redisClient = require('../config/redis')
 const getProduct = asyncHandler(async (req, res, next) => {
     const { id } = req.params;
@@ -96,5 +97,31 @@ const getProductsPagination = asyncHandler(async (req,res,next) => {
     return res.status(200).json(products)
 })
 
-module.exports = { getProduct, getProducts, addProduct, editProduct, deleteProduct,newProduct, getProductsPagination };
+
+
+
+const searchedProduct = asyncHandler(async (req, res, next) => {
+    const searchItem = req.params.searchItem;
+
+    try {
+        const products = await Product.findAll({
+            where: {
+                [Op.or]: [
+                    { name: { [Op.like]: `%${searchItem}%` } },
+                    { description: { [Op.like]: `%${searchItem}%` } }
+                ]
+            }
+        });
+
+        if (products.length === 0) {
+            return res.status(404).json({ message: "No products found matching the search term." });
+        }
+        res.status(200).json(products);
+    } catch (error) {
+        next(error); // Pass the error to the error handling middleware
+    }
+});
+
+
+module.exports = { getProduct, getProducts, addProduct, editProduct, deleteProduct,newProduct, getProductsPagination,searchedProduct };
 

@@ -115,6 +115,38 @@ h2 {
     background-color: darkred;
 }
 
+
+.login-auth {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.login-auth > button {
+    margin: 5px;
+    width: 0 auto;
+    padding: 8px;
+    border-radius: 5px;
+    background: none;
+    height: auto;
+}
+
+.login-auth > button:hover {
+    background-color:#007BFF;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ---- Responsive Design ---- */
 
 /* Device = Desktops (1281px and above) */

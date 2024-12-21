@@ -75,8 +75,8 @@ app.use(globalErrorHandler);
 const syncDatabase = asyncHandler(async () => {
   await sequelize.authenticate();
   console.log('Database connected 🔗🔗🔗');
-  await sequelize.sync({ force: true }); // Force sync the database (use carefully)
-  console.log('All models are synched ✅✅✅');
+  // await sequelize.sync({ force: true }); // Force sync the database (use carefully)
+  // console.log('All models are synched ✅✅✅');
   await seedAllModel(); // Seed data if necessary
 });
 

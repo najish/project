@@ -7,6 +7,10 @@ import UserProfile from "./pages/user/UserProfile";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import ManageUsers from "./pages/admin/ManageUsers";
 import Products from "./pages/user/Products";
+import Test from './Test'
+import { UserProvider } from './contexts/UserContext'
+import ProductDetails from "./pages/user/ProductDetails";
+import Cart from './pages/user/Cart'
 const App = () => {
   return (
     <Router>
@@ -15,11 +19,19 @@ const App = () => {
         <Route path="/" element={<Navigate to="/user/products" replace />} />
 
         {/* User routes */}
-        <Route path="/user" element={<UserLayout />}>
+        <Route path="/user" element={
+          <UserProvider>
+            <UserLayout />
+          </UserProvider>
+        }>
           <Route path="products" element={<Products />} />
           <Route path="dashboard" element={<UserDashboard />} />
           <Route path="profile" element={<UserProfile />} />
+          <Route path='product/details/:id' element= {<ProductDetails />} />
+          <Route path='cart' element= {<Cart />} />
         </Route>
+
+        <Route path="/test" element={<Test />} />
 
         {/* Admin routes (explicit) */}
         <Route path="/admin" element={<AdminLayout />}>

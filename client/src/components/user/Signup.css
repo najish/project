@@ -116,6 +116,22 @@ h2 {
     background-color: darkred;
 }
 
+
+
+.signup-auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:20px;
+}
+
+.signup-auth > button {
+    margin: 10px;
+    padding: 8px;
+    background: none;
+    border-radius: 5px;
+}
+
 /* ---- Responsive Design ---- */
 
 /* Device = Smartphones (Portrait) (320px to 480px) */

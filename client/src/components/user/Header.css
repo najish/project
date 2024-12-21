@@ -135,6 +135,7 @@
     align-items: center;
     justify-content: center;
     background-color: white;
+    background: transparent;
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -142,8 +143,14 @@
     transition: background-color 0.3s;
 }
 
+.cart-length {
+    color: rgb(7, 13, 0);
+    font-weight: 900;
+    color: white;
+}
+
 .user-profile:hover, .user-cart:hover {
-    background-color: #E3F2FD;
+    background-color: black;
 }
 
 .menu-toggle {
@@ -154,6 +161,13 @@
     color: white;
 }
 
+
+.user-profile-menu-list {
+    display: none;
+}
+.user-profile-menu-list:hover {
+    display: block;
+}
 /* Responsive Styles */
 @media (max-width: 1024px) {
     .header {

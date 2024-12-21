@@ -16,11 +16,11 @@ router.route('/:id')
     .put(productController.editProduct)
     .delete(productController.deleteProduct)
 
-
-router.route('/pagination/:currentPage')
-    .get(productController.getProductPagination)
-
 router.get('/new',productController.newProduct)
+
+
+router.route('/searchItem/:searchItem')
+    .get(productController.searchedProduct)
 
 
 router.route('/pagination/:currentPage')

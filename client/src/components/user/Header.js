@@ -1,23 +1,25 @@
 // src/components/Header.jsx
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBagShopping, FaCircleUser, FaBars } from "react-icons/fa6";
 import "./Header.css";
 import Login from './Login';   // Corrected import
 import Signup from "./Signup";
+import { UserContext } from "../../contexts/UserContext";
 const Header = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [menuOpen, setMenuOpen] = useState(false);
     const [activeForm, setActiveForm] = useState(null); // Track active form (login or signup)
     const [overlay, setOverlay] = useState(false);     // Manage overlay visibility
-
+    const {cart, setCart, searchItem, setSearchItem} = useContext(UserContext)
     const handleSearchChange = (event) => {
         setSearchTerm(event.target.value);
     };
-
+    
     const handleSearchSubmit = (event) => {
         event.preventDefault();
         console.log("Searching for:", searchTerm);
+        setSearchItem(searchTerm)
     };
 
     const toggleMenu = () => {
@@ -34,13 +36,17 @@ const Header = () => {
         setActiveForm(null); // Clear the active form state
     };
 
+
+
     return (
         <header className="header">
             <nav className="nav">
                 {/* Left Section: Logo */}
                 <div className="nav-left">
                     <div className="logo">
-                        <img src="../../public/favicon_io/favicon.ico" alt="E-commerce Logo" />
+                        <Link to='/user/products'>
+                            <img src="/icon.png"  alt="E-commerce Logo" />
+                        </Link>
                     </div>
                 </div>
 
@@ -66,8 +72,15 @@ const Header = () => {
                     <div className="user-profile" onClick={() => openForm("login")}>
                         <FaCircleUser size={25} title="User Profile" />
                     </div>
+                    <div className='user-profile-menu'>
+                        <ul className="user-profile-menu-list">
+                            <li>Profile</li>
+                            <li>Orders</li>
+                            <li>Logout</li>
+                        </ul>
+                    </div>
                     <div className="user-cart">
-                        <FaBagShopping size={25} title="Cart" />
+                        <FaBagShopping style={{color: 'white'}} size={25} title="Cart" /> {cart?.length > 0 ? (<sup className="cart-length">{cart.length}</sup>) : '0'}
                     </div>
                     <Link className="nav-link" onClick={() => openForm('signup')}>Sign Up</Link>
                     <Link className="nav-link" onClick={() => openForm('login')}>Login</Link>

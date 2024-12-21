@@ -138,5 +138,146 @@
         "description": "Equipment and supplements for health and fitness.",
         "createdAt": "2024-12-20T05:00:00Z",
         "updatedAt": "2024-12-20T05:00:00Z"
+    },    
+    {
+        "id": 21,
+        "categoryName": "Home Appliances",
+        "description": "Essential appliances for home and kitchen use.",
+        "createdAt": "2024-12-20T05:00:00Z",
+        "updatedAt": "2024-12-20T05:00:00Z"
+    },
+    {
+        "id": 22,
+        "categoryName": "Mobile Accessories",
+        "description": "Accessories for mobile phones, including cases and chargers.",
+        "createdAt": "2024-12-20T05:00:00Z",
+        "updatedAt": "2024-12-20T05:00:00Z"
+    },
+    {
+        "id": 23,
+        "categoryName": "Gaming",
+        "description": "Consoles, accessories, and games for all platforms.",
+        "createdAt": "2024-12-20T05:00:00Z",
+        "updatedAt": "2024-12-20T05:00:00Z"
+    },
+    {
+        "id": 24,
+        "categoryName": "Office Supplies",
+        "description": "Everything you need for your home or work office.",
+        "createdAt": "2024-12-20T05:00:00Z",
+        "updatedAt": "2024-12-20T05:00:00Z"
+    },
+    {
+        "id": 25,
+        "categoryName": "Toys and Games",
+        "description": "Toys, games, and entertainment for all ages.",
+        "createdAt": "2024-12-20T05:00:00Z",
+        "updatedAt": "2024-12-20T05:00:00Z"
+    },
+    {
+        "id": 26,
+        "categoryName": "Fashion Accessories",
+        "description": "Stylish accessories including bags, belts, and watches.",
+        "createdAt": "2024-12-20T05:00:00Z",
+        "updatedAt": "2024-12-20T05:00:00Z"
+    },
+    {
+        "id": 27,
+        "categoryName": "Automotive",
+        "description": "Car accessories, tools, and maintenance products.",
+        "createdAt": "2024-12-20T05:00:00Z",
+        "updatedAt": "2024-12-20T05:00:00Z"
+    },
+    {
+        "id": 28,
+        "categoryName": "Outdoor and Garden",
+        "description": "Equipment and supplies for outdoor activities and gardening.",
+        "createdAt": "2024-12-20T05:00:00Z",
+        "updatedAt": "2024-12-20T05:00:00Z"
+    },
+    {
+        "id": 29,
+        "categoryName": "Books",
+        "description": "A wide variety of books across genres and topics.",
+        "createdAt": "2024-12-20T05:00:00Z",
+        "updatedAt": "2024-12-20T05:00:00Z"
+    },
+    {
+        "id": 30,
+        "categoryName": "Beauty and Personal Care",
+        "description": "Products for skincare, haircare, and personal grooming.",
+        "createdAt": "2024-12-20T05:00:00Z",
+        "updatedAt": "2024-12-20T05:00:00Z"
+    },
+    {
+        "id": 31,
+        "categoryName": "Pet Supplies",
+        "description": "Everything your pets need, from food to toys.",
+        "createdAt": "2024-12-20T05:00:00Z",
+        "updatedAt": "2024-12-20T05:00:00Z"
+    },
+    {
+        "id": 32,
+        "categoryName": "Jewelry",
+        "description": "Exquisite jewelry pieces for every occasion.",
+        "createdAt": "2024-12-20T05:00:00Z",
+        "updatedAt": "2024-12-20T05:00:00Z"
+    },
+    {
+        "id": 33,
+        "categoryName": "Electronics",
+        "description": "Latest gadgets and electronic devices.",
+        "createdAt": "2024-12-20T05:00:00Z",
+        "updatedAt": "2024-12-20T05:00:00Z"
+    },
+    {
+        "id": 34,
+        "categoryName": "Art and Crafts",
+        "description": "Supplies for artists and craft enthusiasts.",
+        "createdAt": "2024-12-20T05:00:00Z",
+        "updatedAt": "2024-12-20T05:00:00Z"
+    },
+    {
+        "id": 35,
+        "categoryName": "Musical Instruments",
+        "description": "Instruments and accessories for music lovers.",
+        "createdAt": "2024-12-20T05:00:00Z",
+        "updatedAt": "2024-12-20T05:00:00Z"
+    },
+    {
+        "id": 36,
+        "categoryName": "Sports Equipment",
+        "description": "Gear and accessories for various sports and activities.",
+        "createdAt": "2024-12-20T05:00:00Z",
+        "updatedAt": "2024-12-20T05:00:00Z"
+    },
+    {
+        "id": 37,
+        "categoryName": "Travel Accessories",
+        "description": "Everything you need for comfortable and organized travel.",
+        "createdAt": "2024-12-20T05:00:00Z",
+        "updatedAt": "2024-12-20T05:00:00Z"
+    },
+    {
+        "id": 38,
+        "categoryName": "Baby Products",
+        "description": "Essentials for babies and toddlers.",
+        "createdAt": "2024-12-20T05:00:00Z",
+        "updatedAt": "2024-12-20T05:00:00Z"
+    },
+    {
+        "id": 39,
+        "categoryName": "Hardware Tools",
+        "description": "Tools and equipment for home improvement and repairs.",
+        "createdAt": "2024-12-20T05:00:00Z",
+        "updatedAt": "2024-12-20T05:00:00Z"
+    },
+    {
+        "id": 40,
+        "categoryName": "Luxury Items",
+        "description": "Premium and high-end products for a luxurious lifestyle.",
+        "createdAt": "2024-12-20T05:00:00Z",
+        "updatedAt": "2024-12-20T05:00:00Z"
     }
 ]
+

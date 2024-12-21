@@ -100,6 +100,10 @@ const Signup = ({closeForm}) => {
        
         <button type="submit" className="submit-btn">Sign Up</button>
       </form>
+      <div className='signup-auth'>
+        <button>Google</button>
+        <button>Facebook</button>
+      </div>
     </div>
   );
 };

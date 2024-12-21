@@ -88,5 +88,185 @@
         "stockQuantity": 40,
         "imageUrl": "images/products/noise_cancelling_headphones.jpeg",
         "categoryId": 10
+    },
+    {
+        "id": 11,
+        "name": "External Hard Drive",
+        "description": "Portable 1TB external hard drive for secure data storage.",
+        "price": 59.99,
+        "stockQuantity": 150,
+        "imageUrl": "images/products/fallback.jpeg",
+        "categoryId": 11
+    },
+    {
+        "id": 12,
+        "name": "LED Desk Lamp",
+        "description": "Adjustable LED desk lamp with touch control and USB charging port.",
+        "price": 29.99,
+        "stockQuantity": 200,
+        "imageUrl": "images/products/fallback.jpeg",
+        "categoryId": 12
+    },
+    {
+        "id": 13,
+        "name": "Portable Power Bank",
+        "description": "High-capacity power bank with fast charging for multiple devices.",
+        "price": 39.99,
+        "stockQuantity": 300,
+        "imageUrl": "images/products/fallback.jpeg",
+        "categoryId": 13
+    },
+    {
+        "id": 14,
+        "name": "Wireless Keyboard",
+        "description": "Compact wireless keyboard with long battery life.",
+        "price": 24.99,
+        "stockQuantity": 180,
+        "imageUrl": "images/products/fallback.jpeg",
+        "categoryId": 14
+    },
+    {
+        "id": 15,
+        "name": "Webcam",
+        "description": "Full HD 1080p webcam with built-in microphone.",
+        "price": 49.99,
+        "stockQuantity": 100,
+        "imageUrl": "images/products/fallback.jpeg",
+        "categoryId": 15
+    },
+    {
+        "id": 16,
+        "name": "Tablet Stand",
+        "description": "Adjustable tablet stand compatible with all sizes.",
+        "price": 19.99,
+        "stockQuantity": 220,
+        "imageUrl": "images/products/fallback.jpeg",
+        "categoryId": 16
+    },
+    {
+        "id": 17,
+        "name": "Phone Tripod",
+        "description": "Lightweight tripod for smartphones with 360-degree rotation.",
+        "price": 14.99,
+        "stockQuantity": 250,
+        "imageUrl": "images/products/fallback.jpeg",
+        "categoryId": 17
+    },
+    {
+        "id": 18,
+        "name": "Smart Plug",
+        "description": "Wi-Fi enabled smart plug for home automation.",
+        "price": 16.99,
+        "stockQuantity": 400,
+        "imageUrl": "images/products/fallback.jpeg",
+        "categoryId": 18
+    },
+    {
+        "id": 19,
+        "name": "Wireless Mouse",
+        "description": "Ergonomic wireless mouse with adjustable DPI.",
+        "price": 19.99,
+        "stockQuantity": 300,
+        "imageUrl": "images/products/fallback.jpeg",
+        "categoryId": 19
+    },
+    {
+        "id": 20,
+        "name": "Mini Projector",
+        "description": "Compact portable projector with 1080p resolution support.",
+        "price": 119.99,
+        "stockQuantity": 60,
+        "imageUrl": "images/products/fallback.jpeg",
+        "categoryId": 20
+    },
+    {
+        "id": 21,
+        "name": "USB-C Hub",
+        "description": "Multi-port USB-C hub with HDMI and SD card reader.",
+        "price": 34.99,
+        "stockQuantity": 150,
+        "imageUrl": "images/products/fallback.jpeg",
+        "categoryId": 21
+    },
+    {
+        "id": 22,
+        "name": "Gaming Headset",
+        "description": "Over-ear gaming headset with surround sound and mic.",
+        "price": 49.99,
+        "stockQuantity": 80,
+        "imageUrl": "images/products/fallback.jpeg",
+        "categoryId": 22
+    },
+    {
+        "id": 23,
+        "name": "Car Phone Mount",
+        "description": "Universal car phone mount with strong suction cup.",
+        "price": 12.99,
+        "stockQuantity": 320,
+        "imageUrl": "images/products/fallback.jpeg",
+        "categoryId": 23
+    },
+    {
+        "id": 24,
+        "name": "Wireless Doorbell",
+        "description": "Waterproof wireless doorbell with multiple chime options.",
+        "price": 29.99,
+        "stockQuantity": 140,
+        "imageUrl": "images/products/fallback.jpeg",
+        "categoryId": 24
+    },
+    {
+        "id": 25,
+        "name": "Electric Toothbrush",
+        "description": "Rechargeable electric toothbrush with multiple cleaning modes.",
+        "price": 39.99,
+        "stockQuantity": 110,
+        "imageUrl": "images/products/fallback.jpeg",
+        "categoryId": 25
+    },
+    {
+        "id": 26,
+        "name": "Smart Thermostat",
+        "description": "Energy-saving smart thermostat with app control.",
+        "price": 129.99,
+        "stockQuantity": 50,
+        "imageUrl": "images/products/fallback.jpeg",
+        "categoryId": 26
+    },
+    {
+        "id": 27,
+        "name": "HDMI Cable",
+        "description": "Durable 6ft HDMI cable for high-speed data transfer.",
+        "price": 8.99,
+        "stockQuantity": 500,
+        "imageUrl": "images/products/fallback.jpeg",
+        "categoryId": 27
+    },
+    {
+        "id": 28,
+        "name": "Solar Power Bank",
+        "description": "Eco-friendly solar power bank with dual USB output.",
+        "price": 49.99,
+        "stockQuantity": 90,
+        "imageUrl": "images/products/fallback.jpeg",
+        "categoryId": 28
+    },
+    {
+        "id": 29,
+        "name": "Laptop Cooling Pad",
+        "description": "Ultra-slim laptop cooling pad with quiet fans.",
+        "price": 24.99,
+        "stockQuantity": 130,
+        "imageUrl": "images/products/fallback.jpeg",
+        "categoryId": 29
+    },
+    {
+        "id": 30,
+        "name": "Electric Kettle",
+        "description": "Fast boiling electric kettle with auto shut-off.",
+        "price": 29.99,
+        "stockQuantity": 170,
+        "imageUrl": "images/products/fallback.jpeg",
+        "categoryId": 30
     }
 ]

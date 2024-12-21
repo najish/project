@@ -13,7 +13,7 @@ const getUser = asyncHandler(async (req, res) => {
 // Get all users
 const getUsers = asyncHandler(async (req, res) => {
   const users = await User.findAll();
-  res.status(201).json(users);
+  res.status(200).json(users);
 });
 
 // Create a new user
