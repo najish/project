@@ -1,5 +1,5 @@
 const express = require('express')
-const { signup, login } = require('../controllers/authController')
+const { signup, login, google, facebook } = require('../controllers/authController')
 const authenticate = require('../middlewares/authMiddleware')
 const { OAuth2Client } = require('google-auth-library')
 const jwt = require('jsonwebtoken')
@@ -67,6 +67,8 @@ router.post('/google', async (req, res) => {
 
 router.post('/signup', signup)
 router.post('/login', login)
+router.get('/google', google)
+router.get('/facebook', facebook)
 router.get('/protected', authenticate, (req, res) => {
     res.json({ message: `welcome, ${req.user.username}!`, user: req.user })
 })

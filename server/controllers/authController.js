@@ -68,8 +68,20 @@ exports.login = asyncHandler(async (req, res) => {
             username: user.username,
             email: user.email,
             role: user.role,
-            firstName: user.firstName
+            firstName: user.firstName,
+            id: user.id
         },
         token,
     });
 });
+
+
+
+exports.google = asyncHandler(async (req,res,next) => {
+    
+})
+
+exports.facebook = asyncHandler(async (req,res,next) => {
+
+})
+
