@@ -125,9 +125,12 @@
 
 /* Right Section Styling */
 .nav-right {
+    position: relative;
+    right: 20px;
     display: flex;
     align-items: center;
     gap: 15px;
+    /* margin-right: 20px; */
 }
 
 .user-profile, .user-cart {
@@ -150,7 +153,12 @@
 }
 
 .user-profile:hover, .user-cart:hover {
-    background-color: black;
+    background-color: aqua;
+}
+
+span.user-logged {
+    color: white !important;
+    font-weight: bolder !important;
 }
 
 .menu-toggle {

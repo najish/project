@@ -1,57 +1,74 @@
 /* src/components/Footer.css */
+
 .footer {
-    background-color: #333;
-    color: white;
+    background-color: #282c34; /* Dark background color */
+    color: #fff; /* Light text color */
+    padding: 30px 20px;
     text-align: center;
-    padding: 20px;
-    bottom: 0;
-    width: 100%;
+    font-family: 'Arial', sans-serif;
 }
 
-.footer p {
-    margin: 0;
+.footer-content {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* For responsiveness */
 }
 
-/* Media Queries for Footer */
+.footer-left {
+    flex: 1;
+}
 
-/* Desktop and Larger Screens (1281px and up) */
-@media (min-width: 1281px) {
-    .footer {
-        padding: 25px;
+.footer-links ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    font-size: 1rem;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #007bff; /* Blue color on hover */
+}
+
+.footer-social {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-social a {
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: #007bff; /* Blue color on hover */
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
     }
-}
 
-/* Laptops and Desktops (1025px to 1280px) */
-@media (min-width: 1025px) and (max-width: 1280px) {
-    .footer {
-        padding: 20px;
+    .footer-links ul {
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 20px;
     }
-}
 
-/* Tablets (Portrait 768px to 1024px) */
-@media (min-width: 768px) and (max-width: 1024px) {
-    .footer {
-        padding: 15px;
-    }
-}
-
-/* Tablets (Landscape 768px to 1024px) */
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    .footer {
-        padding: 15px;
-    }
-}
-
-/* Low-Resolution Tablets and Mobile Landscape (481px to 767px) */
-@media (min-width: 481px) and (max-width: 767px) {
-    .footer {
-        padding: 10px;
-    }
-}
-
-/* Smartphones (Portrait 320px to 480px) */
-@media (min-width: 320px) and (max-width: 480px) {
-    .footer {
-        padding: 8px;
+    .footer-social {
+        justify-content: center;
     }
 }

@@ -1,0 +1,239 @@
+.checkout-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+}
+
+.checkout-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 600px;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-container h2,
+.checkout-container h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.checkout-address-list {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+.checkout-address-list p {
+    text-align: justify;
+}
+
+.checkout-address-item {
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.checkout-address-item:hover {
+    background-color: #f0f0f0;
+}
+
+.checkout-address-item.checkout-selected {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.checkout-add-address-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.checkout-add-address-btn:hover {
+    background-color: #0056b3;
+}
+
+.checkout-payment-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+.checkout-payment-option {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: calc(33% - 20px);
+    justify-content: center;
+    text-align: center;
+}
+
+.checkout-payment-option:hover {
+    background-color: lightblue;
+}
+
+
+
+.checkout-payment-option.checkout-selected {
+    background-color: #28a745;
+}
+.checkout-confirm-order-btn {
+    margin-top: 20px;
+}
+
+.checkout-confirm-order-btn button {
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.checkout-confirm-order-btn button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.checkout-confirm-order-btn button:hover {
+    background-color: #218838;
+}
+
+.checkout-spinner {
+    animation: spin 1s infinite linear;
+    margin-right: 10px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.checkout-order-confirmation-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.checkout-order-confirmation-message {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+}
+
+.checkout-order-confirmation-message h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #28a745;
+}
+
+.checkout-order-confirmation-message p {
+    color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .checkout-content {
+        padding: 15px;
+    }
+
+    .checkout-container h2,
+    .checkout-container h3 {
+        font-size: 1.2rem;
+    }
+
+    .checkout-payment-options {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .checkout-payment-option {
+        width: 100%;
+    }
+
+    .checkout-confirm-order-btn button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .checkout-content {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .checkout-container h2,
+    .checkout-container h3 {
+        font-size: 1rem;
+    }
+
+    .checkout-payment-options {
+        gap: 5px;
+    }
+
+    .checkout-payment-option {
+        padding: 8px;
+    }
+
+    .checkout-confirm-order-btn button {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+}

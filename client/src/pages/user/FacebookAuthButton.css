@@ -1,0 +1,34 @@
+.facebook-button {
+    background-color: #4267B2; /* Facebook Blue */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: clamp(120px, 20%, 200px); /* Responsive width */
+    height: clamp(40px, 5vh, 60px); /* Responsive height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Hover effect */
+  .facebook-button:hover {
+    background-color: #365899;
+    transform: scale(1.05);
+  }
+  
+  /* Disabled button styling */
+  .facebook-button:disabled {
+    background-color: #a8b3d9;
+    cursor: not-allowed;
+  }
+  
+  /* Center the container */
+  .facebook-auth-container {
+    text-align: center;
+  }
+  

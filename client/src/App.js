@@ -11,6 +11,7 @@ import Test from './Test'
 import { UserProvider } from './contexts/UserContext'
 import ProductDetails from "./pages/user/ProductDetails";
 import Cart from './pages/user/Cart'
+import Checkout from "./pages/user/Checkout";
 const App = () => {
   return (
     <Router>
@@ -29,6 +30,7 @@ const App = () => {
           <Route path="profile" element={<UserProfile />} />
           <Route path='product/details/:id' element= {<ProductDetails />} />
           <Route path='cart' element= {<Cart />} />
+          <Route path='checkout' element= {<Checkout />} />
         </Route>
 
         <Route path="/test" element={<Test />} />
